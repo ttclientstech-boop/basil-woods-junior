@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaWhatsapp } from 'react-icons/fa';
 
 /* Import images */
-import picture1 from "../assets/Images/Picture1.webp";
-import picture2 from "../assets/Images/Picture2.webp";
-import picture3 from "../assets/Images/Picture3.webp";
+import picture1 from "../assets/Images/Hero1.png";
+import picture2 from "../assets/Images/Hero2.png";
+import picture3 from "../assets/Images/Hero3.png";
 
 const phoneNumber = "918056179108";
 const handleWhatsAppRedirect = () => {
