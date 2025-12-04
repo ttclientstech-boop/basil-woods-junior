@@ -43,7 +43,7 @@ const HeroSection = () => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           style={{ y: y2 }}
         >
-          <Sun className="w-20 h-20 fill-current stroke-black stroke-2" />
+          <Sun className="w-20 h-20 fill-current  stroke-2" />
         </motion.div>
 
         <motion.div
@@ -52,7 +52,7 @@ const HeroSection = () => {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ y: y1 }}
         >
-          <Cloud className="w-24 h-24 fill-white stroke-black stroke-2" />
+          <Cloud className="w-24 h-24 fill-white stroke-[hsl(var(--premium-green))] stroke-2" />
         </motion.div>
 
         <motion.div
@@ -60,7 +60,7 @@ const HeroSection = () => {
           animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Bird className="w-10 h-10 stroke-black stroke-2" />
+          <Bird className="w-10 h-10 stroke-2" />
         </motion.div>
 
         {/* Blobs */}
@@ -157,7 +157,7 @@ const HeroSection = () => {
               initial={{ scale: 0.8, rotate: 5 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", bounce: 0.4, duration: 1 }}
-              className="relative aspect-square md:aspect-[4/3] lg:aspect-square"
+              className="relative aspect-square md:aspect-[4/3] lg:aspect-square "
             >
               {/* Cloud Frame Background */}
               <div className="absolute inset-0 bg-white rounded-[3rem] border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transform rotate-2 z-0" />
@@ -201,7 +201,7 @@ const HeroSection = () => {
                 animate={{ rotate: [0, 180, 0], scale: [1, 1.2, 1] }}
                 transition={{ duration: 5, repeat: Infinity }}
               >
-                <Star className="w-20 h-20 fill-current stroke-black stroke-2" />
+                <Star className="w-20 h-20 fill-[hsl(var(--premium-yellow))] stroke-black stroke-2" />
               </motion.div>
             </motion.div>
           </div>
