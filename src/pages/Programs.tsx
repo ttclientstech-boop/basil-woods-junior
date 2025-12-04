@@ -4,53 +4,19 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Clock, Users, Star, Calendar, Download, PlayCircle,
-  BookOpen, Palette, Music, Globe
+  BookOpen, Palette, Music, Globe, Compass, Map, Binoculars, MapPin, CheckCircle2
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from 'react-icons/fa';
 
-/* Waves */
-const WaveTop = ({ fill = "#f2ede6", className = "" }) => (
-  <div className={`absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180 ${className}`}>
-    <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fill={fill}
-        d="M0,256L48,240C96,224,192,192,288,170.7C384,149,480,139,576,154.7C672,171,768,213,864,208C960,203,1056,149,1152,117.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-      />
-    </svg>
-  </div>
-);
-
-const WaveBottom = ({ fill = "#efe8df", className = "" }) => (
-  <div className={`absolute bottom-0 left-0 w-full overflow-hidden leading-none ${className}`}>
-    <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fill={fill}
-        d="M0,256L48,240C96,224,192,192,288,170.7C384,149,480,139,576,154.7C672,171,768,213,864,208C960,203,1056,149,1152,117.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-      />
-    </svg>
-  </div>
-);
-
-/* THEME-CORRECT COLOR MAP (uses your HSL CSS variables) */
-const toneFor = (key) => {
-  switch (key) {
-    case "orange":
-      return { bg: "hsl(var(--light-orange))", fg: "hsl(var(--premium-orange))" };
-    case "green":
-      return { bg: "hsl(var(--light-teal))", fg: "hsl(var(--premium-teal))" };
-    case "pink":
-      return { bg: "hsl(var(--light-pink))", fg: "hsl(var(--premium-pink))" };
-    case "purple":
-      return { bg: "hsl(var(--neutral-50))", fg: "hsl(var(--premium-purple))" };
-    case "blue":
-      // no light-blue token provided; using neutral-50 + purple as brand cool accent
-      return { bg: "hsl(var(--neutral-50))", fg: "hsl(var(--premium-purple))" };
-    default:
-      return { bg: "hsl(var(--light-orange))", fg: "hsl(var(--premium-orange))" };
-  }
-};
+/* Import Images */
+import program1 from "../assets/Images/Program1.png";
+import program2 from "../assets/Images/Program2.png";
+import program3 from "../assets/Images/Program3.png";
+import program4 from "../assets/Images/Program4.png";
 
 const ProgramsPage = () => {
   useSEO({
@@ -64,397 +30,267 @@ const ProgramsPage = () => {
     {
       name: "Toddlers",
       age: "2 - 3 years",
-      capacity: "8-10 children per class",
-      description:
-        "Gentle introduction to learning through sensory play, basic social skills, and nurturing care in our safe environment.",
-      features: [
-        "Circle Time",
-        "Culture Connect",
-        "Language",
-        "Numeracy",
-        "Montessori",
-        "Art & Craft",
-        "Cognitive, Intra & Interpersonal Activity",
-        "Storytelling",
-        "Outdoor Play",
-      ],
-      color: "green",
+      capacity: "8-10 children",
+      description: "Gentle introduction to learning through sensory play, basic social skills, and nurturing care.",
+      features: ["Circle Time", "Sensory Play", "Basic Language", "Motor Skills"],
+      color: "bg-green-100",
+      borderColor: "border-green-400",
+      textColor: "text-green-700",
+      rotate: "rotate-1",
       icon: "🌱",
-      image:
-        "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: program1,
     },
     {
       name: "Mont1",
       age: "3 - 4 years",
-      capacity: "12-15 children per class",
-      description:
-        "Building independence with structured play, early learning concepts, and creative exploration activities.",
-      features: [
-        "Circle Time",
-        "Cultural Connect",
-        "Language",
-        "Numeracy",
-        "Montessori",
-        "Art & Craft",
-        "Storytelling",
-        "Outdoor Play",
-        "Music & Movement",
-      ],
-      color: "blue",
+      capacity: "12-15 children",
+      description: "Building independence with structured play, early learning concepts, and creative exploration.",
+      features: ["Montessori", "Numeracy", "Storytelling", "Art & Craft"],
+      color: "bg-blue-100",
+      borderColor: "border-blue-400",
+      textColor: "text-blue-700",
+      rotate: "-rotate-1",
       icon: "🌿",
-      image:
-        "https://images.pexels.com/photos/8613264/pexels-photo-8613264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: program2,
     },
     {
       name: "Mont2",
       age: "4 - 5 years",
-      capacity: "15-18 children per class",
-      description:
-        "Pre-academic skills development with structured learning, cultural activities, and social skill building.",
-      features: [
-        "Circle Time",
-        "Culture Connect",
-        "Language",
-        "Numeracy",
-        "Montessori",
-        "Art & Craft",
-        "Storytelling",
-        "Music & Movements",
-        "Outdoor Play",
-        "Hindi",
-        "Tamil",
-      ],
-      color: "pink",
+      capacity: "15-18 children",
+      description: "Pre-academic skills development with structured learning, cultural activities, and social skill building.",
+      features: ["Language", "Cultural Connect", "Music", "Outdoor Play"],
+      color: "bg-pink-100",
+      borderColor: "border-pink-400",
+      textColor: "text-pink-700",
+      rotate: "rotate-2",
       icon: "🌸",
-      image:
-        "https://images.pexels.com/photos/8613092/pexels-photo-8613092.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: program3,
     },
     {
       name: "Mont3",
       age: "5 - 6 years",
-      capacity: "18-20 children per class",
-      description:
-        "School readiness program with advanced learning concepts, leadership development, and comprehensive preparation.",
-      features: [
-        "Circle Time",
-        "Culture Connect",
-        "Language",
-        "Numeracy",
-        "Montessori",
-        "Art & Craft",
-        "Storytelling",
-        "Music & Movements",
-        "Outdoor Play",
-        "Hindi",
-        "Tamil",
-      ],
-      color: "orange",
+      capacity: "18-20 children",
+      description: "School readiness program with advanced learning concepts, leadership development, and preparation.",
+      features: ["Advanced Math", "Reading", "Leadership", "Science"],
+      color: "bg-orange-100",
+      borderColor: "border-orange-400",
+      textColor: "text-orange-700",
+      rotate: "-rotate-2",
       icon: "🌳",
-      image:
-        "https://images.pexels.com/photos/8613103/pexels-photo-8613103.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: program4,
     },
   ];
 
   const specialPrograms = [
-    {
-      name: "Cultural Heritage",
-      time: "Weekly sessions",
-      icon: Globe,
-      color: "orange",
-      description: "Exploring traditions and values",
-    },
-    {
-      name: "Creative Arts",
-      time: "Daily activities",
-      icon: Palette,
-      color: "purple",
-      description: "Painting, crafts, and creativity",
-    },
-    {
-      name: "Music & Movement",
-      time: "3x per week",
-      icon: Music,
-      color: "green",
-      description: "Songs, dance, and rhythm",
-    },
-    {
-      name: "Reading Club",
-      time: "Daily sessions",
-      icon: BookOpen,
-      color: "blue",
-      description: "Stories and early literacy",
-    },
+    { name: "Cultural Heritage", icon: Globe, color: "bg-orange-50", border: "border-orange-300", text: "text-orange-700" },
+    { name: "Creative Arts", icon: Palette, color: "bg-purple-50", border: "border-purple-300", text: "text-purple-700" },
+    { name: "Music & Movement", icon: Music, color: "bg-green-50", border: "border-green-300", text: "text-green-700" },
+    { name: "Reading Club", icon: BookOpen, color: "bg-blue-50", border: "border-blue-300", text: "text-blue-700" },
   ];
 
   const dailySchedule = [
-    { time: "8:30 - 9:00 AM", activity: "Welcome & Morning Circle", icon: "🌅", description: "Warm greetings and sharing time" },
-    { time: "9:00 - 10:00 AM", activity: "Learning Time", icon: "📚", description: "Structured educational activities" },
-    { time: "10:00 - 10:30 AM", activity: "Healthy Snack Break", icon: "🍎", description: "Nutritious snacks and social time" },
-    { time: "10:30 - 11:30 AM", activity: "Creative Arts & Crafts", icon: "🎨", description: "Artistic expression and creativity" },
-    { time: "11:30 - 12:30 PM", activity: "Outdoor Play", icon: "🏃", description: "Physical activity and fresh air" },
-    { time: "12:30 - 1:30 PM", activity: "Lunch & Rest Time", icon: "🍽️", description: "Healthy meals and quiet time" },
-    { time: "1:30 - 2:30 PM", activity: "Story & Music Time", icon: "🎭", description: "Stories, songs, and imagination" },
-    { time: "2:30 - 3:30 PM", activity: "Free Play & Departure", icon: "🎈", description: "Unstructured play and pickup" },
+    { time: "8:30 AM", activity: "Welcome Circle", icon: "☀️" },
+    { time: "9:00 AM", activity: "Montessori Work", icon: "🧩" },
+    { time: "10:00 AM", activity: "Snack Break", icon: "🍎" },
+    { time: "10:30 AM", activity: "Creative Arts", icon: "🎨" },
+    { time: "11:30 AM", activity: "Outdoor Play", icon: "🏃" },
+    { time: "12:30 PM", activity: "Lunch Time", icon: "🍱" },
+    { time: "1:30 PM", activity: "Story & Nap", icon: "📖" },
+    { time: "3:00 PM", activity: "Departure", icon: "👋" },
   ];
 
   return (
-    <div className="min-h-screen bg-section-1">
+    <div className="min-h-screen bg-[#fffdf5] font-sans overflow-x-hidden">
       <Header />
 
-      {/* HERO */}
-      <section className="py-16 md:py-20 bg-section-1 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-10 md:mb-12">
-            <Badge className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-5 py-2.5 rounded-full border-none font-medium text-xs md:text-sm mb-4">
-              🎓 Our Programs
-            </Badge>
-            <h1 className="text-[30px] md:text-[40px] font-bold text-neutral-700 leading-[1.15] mb-3">
-              Age-Perfect Learning
-              <span className="block bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-                Adventures for Every Child
-              </span>
-            </h1>
-            <p className="text-base md:text-lg text-neutral-600 leading-relaxed max-w-2xl mx-auto">
-              Carefully crafted programs that nurture each developmental stage with love, care, and educational excellence.
-            </p>
-          </div>
+      {/* HERO - "Explorer's Guide" */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
+
+        {/* Floating Adventure Icons */}
+        <motion.div className="absolute top-20 left-10 text-orange-400 opacity-60" animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+          <Compass className="w-16 h-16" />
+        </motion.div>
+        <motion.div className="absolute top-40 right-20 text-green-400 opacity-60" animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <Binoculars className="w-14 h-14" />
+        </motion.div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Badge className="bg-yellow-100 text-yellow-800 border-2 border-yellow-400 px-4 py-1 text-sm font-bold rounded-full mb-6 shadow-sm">
+            <Map className="w-4 h-4 mr-2 inline" />
+            Curriculum Map
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+            Learning <span className="text-[hsl(var(--premium-orange))]">Adventures</span> <br />
+            for Little Explorers
+          </h1>
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-medium">
+            Embark on a journey of discovery with our age-appropriate programs designed to spark curiosity and joy.
+          </p>
         </div>
-        <WaveBottom fill="#f6eee7" />
       </section>
 
-      {/* MAIN PROGRAMS */}
-      <section className="py-14 md:py-16 bg-section-2 relative overflow-hidden">
-        <WaveTop fill="#f6eee7" />
-        <div className="container mx-auto px-4 relative z-10 space-y-12">
-          {programs.map((program, index) => {
-            const tone = toneFor(program.color);
-            return (
-              <div
+      {/* MAIN PROGRAMS - "Postcard Path" */}
+      <section className="py-20 relative">
+        {/* Dashed Path Background */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
+          <svg className="w-full h-full" preserveAspectRatio="none">
+            <path d="M 200 100 Q 400 300 600 100 T 1000 300" stroke="#e5e5e5" strokeWidth="4" strokeDasharray="12 12" fill="none" />
+          </svg>
+        </div>
+
+        <div className="container mx-auto px-4">
+          <div className="space-y-24">
+            {programs.map((program, index) => (
+              <motion.div
                 key={index}
-                className={`grid lg:grid-cols-2 gap-8 lg:gap-10 items-center ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
               >
-                {/* Image */}
-                <div>
-                  <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                    <img
-                      src={program.image}
-                      alt={`${program.name} program`}
-                      className="w-full h-[300px] md:h-[360px] object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-                    <div
-                      className="absolute top-4 right-4 w-14 h-14 rounded-2xl text-white text-2xl flex items-center justify-center shadow-sm"
-                      style={{ backgroundColor: tone.fg }}
-                    >
-                      {program.icon}
+                {/* Postcard Image */}
+                <div className="w-full md:w-1/2 relative group">
+                  <div className={`absolute inset-0 ${program.color} rounded-xl transform ${program.rotate} group-hover:rotate-0 transition-transform duration-300 shadow-lg border-2 ${program.borderColor}`} />
+                  <div className="relative bg-white p-3 rounded-xl border-2 border-white shadow-md transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+                    <img src={program.image} alt={program.name} className="w-full h-64 object-cover rounded-lg border border-neutral-100" />
+                    {/* Stamp */}
+                    <div className="absolute -top-4 -right-4 bg-white p-2 rounded-full shadow-md border-2 border-neutral-200 transform rotate-12">
+                      <div className="w-12 h-12 rounded-full border-2 border-dashed border-neutral-300 flex items-center justify-center text-2xl">
+                        {program.icon}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <Card
-                  className="rounded-3xl p-6 md:p-7 shadow-sm border"
-                  style={{ backgroundColor: tone.bg, borderColor: "hsl(var(--neutral-100))" }}
-                >
-                  <div className="flex items-center gap-4 mb-5">
-                    <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl text-white"
-                      style={{ backgroundColor: tone.fg }}
-                    >
-                      {program.icon}
-                    </div>
-                    <div>
-                      <h2 className="text-xl md:text-2xl font-bold text-neutral-800">{program.name}</h2>
-                      <p className="font-semibold text-sm" style={{ color: tone.fg }}>
-                        {program.age}
-                      </p>
-                    </div>
+                {/* Handwritten Content */}
+                <div className="w-full md:w-1/2 md:px-8 text-center md:text-left">
+                  <h2 className={`text-4xl font-black ${program.textColor} font-handwriting mb-2`}>{program.name}</h2>
+                  <div className="inline-block bg-neutral-100 px-3 py-1 rounded-full text-sm font-bold text-neutral-600 mb-4 border border-neutral-200">
+                    {program.age} • {program.capacity}
                   </div>
+                  <p className="text-lg text-neutral-700 mb-6 font-medium leading-relaxed">
+                    {program.description}
+                  </p>
 
-                  <p className="text-neutral-700 mb-5 leading-relaxed">{program.description}</p>
-
-                  {/* Highlights */}
-                  <div className="space-y-2.5 mb-5">
-                    <h4 className="font-bold text-neutral-800 text-sm">Program Highlights:</h4>
-                    <div className="grid sm:grid-cols-2 gap-2">
-                      {program.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 bg-white p-2.5 rounded-lg shadow-sm">
-                          <Star className="w-4 h-4" stroke="currentColor" fill="none" strokeWidth={2} style={{ color: tone.fg }} />
-                          <span className="text-sm text-neutral-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {program.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm font-bold text-neutral-600">
+                        <CheckCircle2 className={`w-4 h-4 ${program.textColor}`} />
+                        {feature}
+                      </div>
+                    ))}
                   </div>
-
-                  {/* <Button
-                    className="text-white rounded-xl px-6 py-3 font-semibold shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all duration-200"
-                    style={{ backgroundColor: tone.fg }}
-                  >
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Enroll Now
-                  </Button> */}
-                </Card>
-              </div>
-            );
-          })}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <WaveBottom fill="#e9f2ef" />
       </section>
 
-      {/* SPECIAL PROGRAMS */}
-      <section className="py-14 md:py-16 bg-section-3 relative overflow-hidden">
-        <WaveTop fill="#e9f2ef" />
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <Badge className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium mb-3">Special Programs</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mb-2">Enrichment Activities</h2>
-            <p className="text-neutral-700 text-base md:text-lg max-w-2xl mx-auto">
-              Additional programs to enhance your child's learning experience
-            </p>
-          </div>
+      {/* SPECIAL PROGRAMS - "Merit Badges" */}
+      <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/canvas-orange.png')] border-y-8 border-orange-200">
+        <div className="container mx-auto px-4 text-center">
+          <Badge className="bg-white text-orange-600 border-2 border-orange-400 px-4 py-1 text-sm font-bold rounded-full mb-8 shadow-sm">
+            Enrichment Activities
+          </Badge>
+          <h2 className="text-4xl font-black text-[hsl(var(--brand-dark-green))] mb-12 font-handwriting drop-shadow-md">Earn Your Badges!</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {specialPrograms.map((program, index) => {
-              const tone = toneFor(program.color);
-              const Icon = program.icon;
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {specialPrograms.map((p, i) => {
+              const Icon = p.icon;
               return (
-                <Card
-                  key={index}
-                  className="bg-white border border-neutral-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-[2px]"
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.1 }}
+                  className="flex flex-col items-center"
                 >
-                  <div
-                    className="mx-auto mb-4 w-14 h-14 rounded-2xl flex items-center justify-center"
-                    style={{ backgroundColor: tone.bg, color: tone.fg }}
-                  >
-                    <Icon className="w-6 h-6" stroke="currentColor" fill="none" strokeWidth={2} />
+                  <div className={`w-32 h-32 rounded-full ${p.color} border-4 border-dashed ${p.border} flex items-center justify-center shadow-[0px_8px_0px_0px_rgba(0,0,0,0.1)] mb-4`}>
+                    <Icon className={`w-12 h-12 ${p.text}`} />
                   </div>
-
-                  <h3 className="font-bold text-neutral-800 mb-1">{program.name}</h3>
-                  <p className="text-xs font-medium mb-1" style={{ color: tone.fg }}>
-                    {program.time}
-                  </p>
-                  <p className="text-neutral-700 text-sm">{program.description}</p>
-                </Card>
+                  <h3 className="text-xl font-black text-white font-handwriting drop-shadow-sm">{p.name}</h3>
+                </motion.div>
               );
             })}
           </div>
         </div>
-        <WaveBottom fill="#eee7fa" />
       </section>
 
-      {/* DAILY SCHEDULE */}
-      <section className="py-14 md:py-16 bg-section-4 relative overflow-hidden">
-        <WaveTop fill="#eee7fa" />
+      {/* DAILY SCHEDULE - "Clipboard" */}
+      <section className="py-20 bg-[#f4f7ff]">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <Badge className="bg-teal-100 text-teal-700 px-4 py-2 rounded-full font-medium mb-3">Daily Schedule</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mb-2">A Day in Our Program</h2>
-            <p className="text-neutral-700 text-base md:text-lg max-w-2xl mx-auto">Sample daily schedule for our full-day programs</p>
-          </div>
+          <div className="max-w-3xl mx-auto relative">
+            {/* Clipboard Clip */}
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-neutral-800 rounded-t-xl z-20 flex items-center justify-center">
+              <div className="w-20 h-4 bg-neutral-600 rounded-full" />
+            </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-4">
-              {dailySchedule.map((item, index) => (
-                <Card
-                  key={index}
-                  className="bg-white border border-orange-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-[2px]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="text-xl flex-shrink-0">{item.icon}</div>
+            <div className="bg-white p-8 pt-16 rounded-3xl shadow-xl border-2 border-neutral-200 relative">
+              <h2 className="text-3xl font-black text-center text-neutral-800 mb-8 font-handwriting underline decoration-wavy decoration-teal-400">
+                A Day in the Life
+              </h2>
+
+              <div className="space-y-4">
+                {dailySchedule.map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-3 border-b border-neutral-100 last:border-0 hover:bg-blue-50 transition-colors rounded-lg">
+                    <div className="text-2xl">{item.icon}</div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-neutral-800 mb-1">{item.activity}</h4>
-                      <p className="text-neutral-700 text-sm leading-relaxed">{item.description}</p>
+                      <div className="font-bold text-neutral-800">{item.activity}</div>
+                      <div className="text-sm text-neutral-500 font-mono">{item.time}</div>
                     </div>
+                    <div className="w-6 h-6 rounded-full border-2 border-neutral-300" />
                   </div>
-                </Card>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <WaveBottom fill="#e9eefc" />
       </section>
 
-      {/* CTA */}
-      <section className="py-14 md:py-16 bg-section-5 relative overflow-hidden">
-        <WaveTop fill="#e9eefc" />
-
+      {/* CTA - "Boarding Pass" */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div
-            className="
-        relative max-w-4xl mx-auto rounded-3xl overflow-hidden
-        p-8 md:p-10 text-center shadow-sm
-        border border-[hsl(var(--neutral-100))] bg-white
-      "
-          >
-            {/* soft brand tints */}
-            <div
-              className="pointer-events-none absolute -top-10 -right-8 w-32 h-32 rounded-full"
-              style={{ backgroundColor: "hsl(var(--light-teal))" }}
-            />
-            <div
-              className="pointer-events-none absolute -bottom-10 -left-8 w-28 h-28 rounded-full"
-              style={{ backgroundColor: "hsl(var(--light-pink))" }}
-            />
-
-            <div className="relative z-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-neutral-900">
-                Ready to Begin Your Child's Adventure?
-              </h2>
-              <p className="text-base md:text-lg mb-6 text-neutral-800 max-w-2xl mx-auto">
-                Choose the perfect program for a nurturing, joyful learning journey.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                {/* Primary: Download Brochure */}
-                <a
-                  href="/brochure.pdf" // make sure brochure.pdf is in the public folder
-                  download
-                >
-                  <Button
-                    className="rounded-xl px-6 py-3 font-bold shadow-sm hover:shadow-md transition-all"
-                    style={{ backgroundColor: "hsl(var(--premium-orange))", color: "white" }}
-                  >
-                    <Download className="w-5 h-5 mr-2" />
-                    Download Brochure
-                  </Button>
-                </a>
-
-                {/* Secondary: Watch Program Video */}
-                <a
-                  href="https://www.youtube.com/watch?v=w4WyoDOi460"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    variant="outline"
-                    className="rounded-xl px-6 py-3 font-bold transition-all border-2 hover:bg-white"
-                    style={{
-                      borderColor: "hsl(var(--premium-orange))",
-                      color: "hsl(var(--premium-orange))",
-                    }}
-                  >
-                    <PlayCircle className="w-5 h-5 mr-2" />
-                    Watch Program Video
-                  </Button>
-                </a>
+          <div className="max-w-4xl mx-auto relative">
+            <div className="absolute inset-0 bg-[hsl(var(--premium-orange))] rounded-3xl transform -rotate-1 opacity-20" />
+            <div className="relative bg-white border-4 border-dashed border-[hsl(var(--premium-orange))] rounded-3xl p-10 text-center shadow-[12px_12px_0px_0px_hsl(var(--premium-orange))]">
+              <div className="flex justify-between items-center mb-8 border-b-2 border-neutral-100 pb-4">
+                <div className="text-left">
+                  <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Destination</div>
+                  <div className="text-xl font-black text-[hsl(var(--brand-dark-green))]">Basil Woods Juniors</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Passenger</div>
+                  <div className="text-xl font-black text-[hsl(var(--brand-dark-green))]">Your Little One</div>
+                </div>
               </div>
 
-              <p className="mt-4 text-xs text-neutral-600">
-                No signup needed to preview the brochure.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-black text-neutral-900 mb-4 font-handwriting">Ready for Takeoff?</h2>
+              <p className="text-lg text-neutral-600 mb-8 font-medium">Book a visit today and start your child's learning adventure.</p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  onClick={() => window.open(`https://wa.me/918056179108`, "_blank")}
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-6 px-8 rounded-xl text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
+                >
+                  <FaWhatsapp className="w-6 h-6 mr-2" />
+                  Chat on WhatsApp
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-2 border-[hsl(var(--premium-orange))] text-[hsl(var(--premium-orange))] hover:bg-orange-50 font-bold py-6 px-8 rounded-xl text-lg"
+                  onClick={() => (window.location.href = "tel:+918056179108")}
+                >
+                  <Download className="w-6 h-6 mr-2" />
+                  Download Brochure
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-
-        <WaveBottom fill="#e3e9fb" />
       </section>
 
-
-      {/* Footer */}
-      <footer className="relative bg-[#f4f7ff]">
-        <WaveTop fill="#e3e9fb" />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
