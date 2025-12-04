@@ -96,11 +96,9 @@ const USPSection = () => {
               key={i}
               className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full ${stat.color} border-4 border-neutral-800 flex flex-col items-center justify-center text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]`}
               initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1, transition: { delay: i * 0.1, duration: 0.5 } }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               animate={{ y: [0, -10, 0] }}
-              // @ts-ignore
               transition={{ duration: 3, repeat: Infinity, delay: i * 0.5, ease: "easeInOut" }}
             >
               <stat.icon className="w-8 h-8 mb-1" strokeWidth={2.5} />
