@@ -16,26 +16,26 @@ const DayInLifeSection = () => {
             desc: "Our day begins with bright smiles! Children arrive and settle into their classrooms with free-play, greeting friends and teachers.",
             icon: Sun,
             color: "bg-yellow-100",
-            textColor: "text-yellow-600",
-            image: picture1
+            image: picture1,
+            
         },
         {
             time: "9:30 AM",
             title: "Circle Time & Learning",
             desc: "We gather for songs, stories, and theme discussions. This structured time builds focus, language, and social connection.",
             icon: BookOpen,
-            color: "bg-blue-100",
-            textColor: "text-blue-600",
-            image: picture2
+            color: "bg-yellow-100",
+            image: picture2,
+            
         },
         {
             time: "11:00 AM",
             title: "Active Play & Exploration",
             desc: "Whether outdoors or in our sensory zones, children engage in gross motor activities, channeling their energy constructively.",
             icon: Play,
-            color: "bg-green-100",
-            textColor: "text-green-600",
-            image: picture3
+            color: "bg-yellow-100",
+            image: picture3,
+            
         },
         {
             time: "12:30 PM",
@@ -43,8 +43,8 @@ const DayInLifeSection = () => {
             desc: "We practice table manners and healthy eating habits together, fostering independence and community.",
             icon: Utensils,
             color: "bg-orange-100",
-            textColor: "text-orange-600",
-            image: picture4
+            image: picture4,
+            
         },
     ];
 

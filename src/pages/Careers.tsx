@@ -60,11 +60,11 @@ const CareersPage = () => {
 
   const benefits = [
     { title: "Competitive Salary", icon: Award, color: "text-yellow-600", bg: "bg-yellow-100" },
-    { title: "Professional Growth", icon: Sprout, color: "text-green-600", bg: "bg-green-100" },
-    { title: "Health & Wellness", icon: Heart, color: "text-red-600", bg: "bg-red-100" },
-    { title: "Work-Life Balance", icon: Sun, color: "text-orange-600", bg: "bg-orange-100" },
-    { title: "Creative Freedom", icon: Lightbulb, color: "text-purple-600", bg: "bg-purple-100" },
-    { title: "Supportive Team", icon: Users, color: "text-blue-600", bg: "bg-blue-100" },
+    { title: "Professional Growth", icon: Sprout, color: "text-yellow-600", bg: "bg-yellow-100" },
+    { title: "Health & Wellness", icon: Heart, color: "text-yellow-600", bg: "bg-yellow-100" },
+    { title: "Work-Life Balance", icon: Sun, color: "text-yellow-600", bg: "bg-yellow-100" },
+    { title: "Creative Freedom", icon: Lightbulb, color: "text-yellow-600", bg: "bg-yellow-100" },
+    { title: "Supportive Team", icon: Users, color: "text-yellow-600", bg: "bg-yellow-100" },
   ];
 
   const values = [

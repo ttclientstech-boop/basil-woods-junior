@@ -89,8 +89,8 @@ const ContactUsPage: React.FC = () => {
       title: "Visit Our Campus",
       desc: "No. 10, Vinod Illam, 2nd St, RBI Colony, Thiruvanmiyur, Chennai",
       icon: MapPin,
-      color: "bg-blue-100",
-      textColor: "text-blue-600",
+      color: "bg-yellow-100",
+      textColor: "text-yellow-600",
       action: "Get Directions",
       link: "https://goo.gl/maps/..." // Placeholder
     },
@@ -98,8 +98,8 @@ const ContactUsPage: React.FC = () => {
       title: "Give Us a Call",
       desc: "+91 8056179108",
       icon: PhoneCall,
-      color: "bg-green-100",
-      textColor: "text-green-600",
+      color: "bg-yellow-100",
+      textColor: "text-yellow-600",
       action: "Call Now",
       link: "tel:+918056179108"
     },

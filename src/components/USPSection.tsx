@@ -24,19 +24,19 @@ const USPSection = () => {
       title: "Award-Winning Program",
       description: "Recognized among India's top preschools by Education Today for excellence.",
       icon: Trophy,
-      color: "bg-blue-100",
+      color: "bg-yellow-100",
       borderColor: "border-yellow-400",
       shadowColor: "shadow-yellow-400",
-      iconColor: "text-blue-600"
+      iconColor: "text-yellow-600"
     },
     {
       title: "Expert Academicians",
       description: "Facilitators with decades of experience in early childhood education.",
       icon: GraduationCap,
-      color: "bg-green-100",
+      color: "bg-yellow-100",
       borderColor: "border-yellow-400",
       shadowColor: "shadow-yellow-400",
-      iconColor: "text-green-600"
+      iconColor: "text-yellow-600"
     },
     {
       title: "Holistic Development",
