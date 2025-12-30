@@ -35,7 +35,7 @@ const HeroSection = () => {
   }, [images.length]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-hero overflow-hidden pt-12 pb-12 md:pt-0 md:pb-0">
+    <section className="relative min-h-[90vh] flex items-center  bg-blue-50 overflow-hidden pt-12 pb-12 md:pt-0 md:pb-0">
 
       {/* Marquee Banner */}
       <div className="absolute top-0 w-full bg-[hsl(var(--premium-yellow))] overflow-hidden py-2 border-b-2 border-black z-30">
@@ -56,7 +56,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Animated Background Elements */}
+     
       {/* Animated Background Elements - Emerging Vectors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div

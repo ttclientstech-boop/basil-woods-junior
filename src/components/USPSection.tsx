@@ -1,13 +1,40 @@
-import React from "react";
-import { motion } from "framer-motion";
+
+import React, { useEffect, useRef } from "react";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Building2, Building, MapPin, BookOpen, Trophy, GraduationCap, Sprout, Star, Heart } from "lucide-react";
 import WaveDivider from "@/components/ui/wave-divider";
 
+const Counter = ({ value, duration = 2 }: { value: number, duration?: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 60,
+    stiffness: 100,
+  });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Math.floor(latest).toLocaleString();
+      }
+    });
+  }, [springValue]);
+
+  return <span ref={ref} />;
+};
+
 const USPSection = () => {
   const stats = [
-    { number: "1500+", label: "Happy Students", icon: GraduationCap, color: "bg-orange-400", shadow: "shadow-orange-600" },
-    { number: "15+", label: "Years Experience", icon: BookOpen, color: "bg-teal-400", shadow: "shadow-teal-600" },
-    { number: "11", label: "Preschools", icon: Building2, color: "bg-pink-400", shadow: "shadow-pink-600" },
+    { value: 1500, suffix: "+", label: "Happy Students", icon: GraduationCap, color: "bg-orange-400", shadow: "shadow-orange-600" },
+    { value: 15, suffix: "+", label: "Years Experience", icon: BookOpen, color: "bg-teal-400", shadow: "shadow-teal-600" },
+    { value: 11, suffix: "", label: "Preschools", icon: Building2, color: "bg-pink-400", shadow: "shadow-pink-600" },
   ];
 
   const advantages = [
@@ -89,7 +116,10 @@ const USPSection = () => {
               whileInView={{ y: 0, opacity: 1, transition: { delay: i * 0.1, duration: 0.5 } }}
               viewport={{ once: true }}
             >
-              <span className="text-4xl md:text-5xl text-[#F97316] font-black leading-none mb-1">{stat.number}</span>
+              <div className="text-4xl md:text-5xl text-[#F97316] font-black leading-none mb-1 flex items-baseline justify-center">
+                <Counter value={stat.value} />
+                <span>{stat.suffix}</span>
+              </div>
               <span className="text-xs md:text-sm font-bold text-[#F97316] uppercase tracking-wide px-2 leading-tight">{stat.label}</span>
             </motion.div>
           ))}
@@ -136,3 +166,4 @@ const USPSection = () => {
 };
 
 export default USPSection;
+

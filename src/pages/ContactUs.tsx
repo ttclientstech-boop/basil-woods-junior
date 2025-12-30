@@ -107,8 +107,8 @@ const ContactUsPage: React.FC = () => {
       title: "Drop an Email",
       desc: "Info.chennai@basilwoods.in",
       icon: Mail,
-      color: "bg-purple-100",
-      textColor: "text-purple-600",
+      color: "bg-yellow-100",
+      textColor: "text-yellow-600",
       action: "Send Email",
       link: "mailto:Info.chennai@basilwoods.in"
     },
@@ -116,8 +116,8 @@ const ContactUsPage: React.FC = () => {
       title: "Working Hours",
       desc: "Mon - Fri: 8:30 AM - 3:30 PM",
       icon: Clock,
-      color: "bg-orange-100",
-      textColor: "text-orange-600",
+      color: "bg-yellow-100",
+      textColor: "text-yellow-600",
       action: null,
     }
   ];

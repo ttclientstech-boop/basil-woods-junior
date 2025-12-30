@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Heart, Calendar, Phone, Target, Lightbulb, Shield, Award, Pin, MapPin, Sparkles } from "lucide-react";
+import { Star, Heart, Calendar, Phone, Target, Lightbulb, Shield, Award, Pin, MapPin, Sparkles, Building2, Trophy, Users, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
@@ -29,10 +29,10 @@ const AboutUsPage = () => {
   });
 
   const milestones = [
-    { year: "2009", title: "Foundation", description: "Started with a vision to blend culture with education", icon: "🌱" },
-    { year: "2015", title: "Recognition", description: "Awarded Best Cultural Integration Program", icon: "🏆" },
-    { year: "2020", title: "Expansion", description: "Reached 500+ happy families milestone", icon: "👨‍👩‍👧‍👦" },
-    { year: "2024", title: "Excellence", description: "15 years of nurturing young minds", icon: "⭐" }
+    { year: "2009", title: "Foundation", description: "Started with a vision to blend culture with education.", icon: <Building2 className="w-10 h-10 text-[#2e7d32]" />, color: "bg-[#e8f5e9]", text: "text-[#2e7d32]", border: "border-[#c8e6c9]" },
+    { year: "2015", title: "Recognition", description: "Awarded Best Cultural Integration Program.", icon: <Trophy className="w-10 h-10 text-[#f57f17]" />, color: "bg-[#fffde7]", text: "text-[#f57f17]", border: "border-[#fff59d]" },
+    { year: "2020", title: "Expansion", description: "Reached 500+ happy families milestone.", icon: <Users className="w-10 h-10 text-[#0277bd]" />, color: "bg-[#e1f5fe]", text: "text-[#0277bd]", border: "border-[#b3e5fc]" },
+    { year: "2024", title: "Excellence", description: "15 years of nurturing young minds.", icon: <GraduationCap className="w-10 h-10 text-[#8e24aa]" />, color: "bg-[#f3e5f5]", text: "text-[#8e24aa]", border: "border-[#e1bee7]" }
   ];
 
   const values = [
@@ -270,39 +270,110 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* MILESTONES - "The Winding Path" */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-black text-center text-[hsl(var(--brand-dark-green))] mb-16 font-handwriting">Our Key Milestones</h2>
+      {/* MILESTONES - "The Visual Journey" */}
+      <section className="py-28 bg-[#fdfbf7] relative overflow-hidden">
+        {/* Organic Background Texture */}
+        <div className="absolute inset-0 opacity-40 pointer-events-none" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d6d3c9' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
 
-          <div className="relative">
-            {/* Dashed Line (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 border-t-4 border-dashed border-neutral-200 -translate-y-1/2" />
+        {/* Soft Blobs */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-100 rounded-full blur-[100px] opacity-30"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-100 rounded-full blur-[100px] opacity-30"></div>
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-              {milestones.map((m, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 }}
-                  className="relative group"
-                >
-                  <div className="bg-white p-6 rounded-2xl border-2 border-neutral-100 shadow-lg hover:-translate-y-2 transition-transform duration-300 text-center relative z-10">
-                    <div className="text-4xl mb-4">{m.icon}</div>
-                    <div className="text-2xl font-black text-[hsl(var(--premium-orange))] mb-2">{m.year}</div>
-                    <h3 className="font-bold text-neutral-800 mb-2">{m.title}</h3>
-                    <p className="text-sm text-neutral-600">{m.description}</p>
-                  </div>
-                  {/* Connector Dot */}
-                  <div className="hidden md:block absolute top-1/2 left-1/2 w-4 h-4 bg-[hsl(var(--brand-dark-green))] rounded-full -translate-x-1/2 -translate-y-1/2 border-4 border-white shadow-sm z-20" />
-                </motion.div>
-              ))}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-24">
+            {/* <span className="inline-block px-5 py-2 rounded-full bg-white border border-[#e0e0e0] text-[#5d4037] font-bold text-sm tracking-widest uppercase mb-4 shadow-sm">Our Journey</span> */}
+            <h2 className="text-4xl md:text-5xl font-black text-[#3e2723] font-handwriting">Our Key Milestones</h2>
+          </div>
+
+          <div className="relative max-w-7xl mx-auto min-h-[600px] md:min-h-[400px]">
+            {/* Organic S-Curve Path (Desktop) */}
+            <svg className="hidden md:block absolute top-0 left-0 w-full h-full overflow-visible z-0 pointer-events-none" viewBox="0 0 1000 400" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#81c784" />
+                  <stop offset="50%" stopColor="#ffb74d" />
+                  <stop offset="100%" stopColor="#64b5f6" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M 100,200 C 250,200 250,100 350,100 C 450,100 450,300 550,300 C 650,300 650,100 750,100 C 850,100 850,200 900,200"
+                fill="none"
+                stroke="url(#pathGradient)"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeDasharray="12 12"
+                className="opacity-60"
+              />
+            </svg>
+
+            {/* Mobile Vertical Line */}
+            <div className="md:hidden absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-green-200 via-orange-200 to-blue-200 rounded-full" />
+
+            <div className="grid grid-cols-1 md:grid-cols-4 relative z-10 gap-12 md:gap-0">
+              {milestones.map((m, i) => {
+                // Determine vertical position for varying wave effect on desktop
+                const isEven = i % 2 === 0;
+                const desktopClass = isEven ? "md:translate-y-[150px]" : "md:translate-y-[-50px]";
+
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: i * 0.2, duration: 0.6, type: "spring" }}
+                    className={`relative pl-20 md:pl-0 flex flex-col items-center ${desktopClass} group`}
+                  >
+                    {/* Floating Card */}
+                    <div className={`
+                      bg-white relative p-6 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] 
+                      border border-white/50 w-full max-w-[280px]
+                      transition-all duration-500 hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.15)] hover:-translate-y-2
+                      z-10
+                    `}>
+                      {/* Icon Bubble */}
+                      <div className={`
+                        absolute -top-10 left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2
+                        w-20 h-20 rounded-full ${m.color} border-4 border-white shadow-lg
+                        flex items-center justify-center text-4xl
+                        transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6
+                      `}>
+                        {m.icon}
+                      </div>
+
+                      <div className="mt-10 text-center">
+                        <div className={`text-4xl font-black ${m.text} opacity-20 absolute top-4 right-6 pointer-events-none font-handwriting`}>
+                          {m.year}
+                        </div>
+
+                        <span className={`inline-block px-3 py-1 rounded-full ${m.color} ${m.text} text-xs font-bold mb-2`}>
+                          {m.year}
+                        </span>
+
+                        <h3 className="text-xl font-bold text-neutral-800 mb-2 leading-tight">
+                          {m.title}
+                        </h3>
+
+                        <p className="text-sm text-neutral-600 font-medium leading-relaxed">
+                          {m.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Connecting Dot to Path (Desktop only visual) */}
+                    <div className="hidden md:block absolute top-[50%] left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-4 border-[#8d6e63] rounded-full z-0 opacity-0" />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* VALUES - "Building Blocks" */}
       <section className="py-20 bg-white">

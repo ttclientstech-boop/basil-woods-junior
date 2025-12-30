@@ -166,7 +166,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-30 bg-[#fffdf5] pt-28 px-6 lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-30 bg-[#fffdf5] pt-48 px-6 lg:hidden overflow-y-auto"
             style={{
               backgroundImage: `linear-gradient(#e5e7eb 1px, transparent 1px)`,
               backgroundSize: '100% 40px'

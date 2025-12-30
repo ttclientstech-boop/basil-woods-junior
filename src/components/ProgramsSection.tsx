@@ -1,30 +1,98 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import WaveDivider from "@/components/ui/wave-divider";
-import { Sunrise, MessageCircle, BookOpen, Drama, Bus, Footprints, Palette, Leaf, Star, Heart } from "lucide-react";
+import { Star, Heart, Clock, Cloud, Sun, Sparkles, Music, Palette, Footprints } from "lucide-react";
 
-/* Import Images for Cards */
-import imgActivity from "@/assets/Images/Picture1.webp";
-import imgCircle from "@/assets/Images/Interior5.webp";
-import imgPhonics from "@/assets/Images/Picture2.webp";
-import imgStory from "@/assets/Images/Interior13.webp";
-import imgField from "@/assets/Images/Exterior1.webp";
-import imgOutdoor from "@/assets/Images/Picture3.webp";
-import imgTheme from "@/assets/Images/Picture5.webp";
-import imgArt from "@/assets/Images/Interior6.webp";
-
+// Import Images
+import ActivityPeriodImg from "../assets/Images/Interior13.webp";
+import CircleTimeImg from "../assets/Images/Interior4.webp";
+import PhonicsImg from "../assets/Images/Program1.png";
+import StoryTimeImg from "../assets/Images/Picture3.webp";
+import FieldTripsImg from "../assets/Images/Exterior1.webp"; // Using Exterior1 for Field Trips (Bus/Outdoors)
+import OutdoorPlayImg from "../assets/Images/Exterior2.webp";
+import ThemeTimeImg from "../assets/Images/Program3.png";
+import ArtCraftImg from "../assets/Images/Program2.png";
 
 const ProgramsSection = () => {
   const activities = [
-    { title: "Activity Period", description: "Transitioning from home to school with excitement!", image: imgActivity, color: "bg-yellow-100", border: "border-yellow-400", text: "text-yellow-700" },
-    { title: "Circle Time", description: "Building confidence through fun morning discussions.", image: imgCircle, color: "bg-blue-100", border: "border-blue-400", text: "text-blue-700" },
-    { title: "Phonics Fun", description: "Learning reading and writing the 'Jolly Phonics' way.", image: imgPhonics, color: "bg-pink-100", border: "border-pink-400", text: "text-pink-700" },
-    { title: "Story Time", description: "Entering the world of imagination with friendly puppets.", image: imgStory, color: "bg-purple-100", border: "border-purple-400", text: "text-purple-700" },
-    { title: "Field Trips", description: "Experiential learning through carefully planned visits.", image: imgField, color: "bg-green-100", border: "border-green-400", text: "text-green-700" },
-    { title: "Outdoor Play", description: "Developing physical skills and social bonds in the sun.", image: imgOutdoor, color: "bg-orange-100", border: "border-orange-400", text: "text-orange-700" },
-    { title: "Theme Time", description: "Exploring new concepts through interactive themes.", image: imgTheme, color: "bg-teal-100", border: "border-teal-400", text: "text-teal-700" },
-    { title: "Art & Craft", description: "Unleashing creativity with hands-on masterpieces.", image: imgArt, color: "bg-red-100", border: "border-red-400", text: "text-red-700" },
+    {
+      title: "Activity Period",
+      time: "9:00 AM",
+      description: "Our day begins with a warm welcome! Children transition from home to school with excitement, engaging in free play with puzzles, blocks, and sensory bins to settle in comfortably.",
+      image: ActivityPeriodImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Circle Time",
+      time: "9:30 AM",
+      description: "A time for connection! We gather to sing our 'Good Morning' songs, discuss the day's calendar, weather, and share special news, building confidence and social skills.",
+      image: CircleTimeImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Phonics Fun",
+      time: "10:00 AM",
+      description: "Unlock the magic of reading! We use the multi-sensory 'Jolly Phonics' method to explore sounds, letters, and blending, laying a strong foundation for early literacy.",
+      image: PhonicsImg,
+      color: "bg-pink-50",
+      border: "border-pink-400",
+      text: "text-pink-700"
+    },
+    {
+      title: "Story Time",
+      time: "10:30 AM",
+      description: "Imaginations soar! Puppets and props bring stories to life, fostering a love for books, enhancing listening skills, and expanding vocabulary in a magical setting.",
+      image: StoryTimeImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Field Trips",
+      time: "11:00 AM",
+      description: "Learning beyond walls! Carefully planned excursions to parks, museums, and local community helpers provide real-world experiences that spark curiosity and wonder.",
+      image: FieldTripsImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Outdoor Play",
+      time: "11:30 AM",
+      description: "Active bodies, happy minds! Running, climbing, and team games helps develop gross motor skills, coordination, and teamwork while enjoying the fresh air and sunshine.",
+      image: OutdoorPlayImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Theme Time",
+      time: "12:00 PM",
+      description: "Deep dives into discovery! We explore monthly themes like 'Space', 'Our Community', or 'Seasons' through interactive projects, science experiments, and role-play.",
+      image: ThemeTimeImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
+    {
+      title: "Art & Craft",
+      time: "12:30 PM",
+      description: "Creativity unleashed! Little hands get busy with paints, clay, collage, and recycled materials, expressing themselves and developing fine motor control with every masterpiece.",
+      image: ArtCraftImg,
+      color: "bg-yellow-50",
+      border: "border-yellow-400",
+      text: "text-yellow-700"
+    },
   ];
+
+  const midpoint = Math.ceil(activities.length / 2);
+  const leftActivities = activities.slice(0, midpoint);
+  const rightActivities = activities.slice(midpoint);
 
   return (
     <section className="py-24 bg-[#fff8f0] relative overflow-hidden">
@@ -32,81 +100,188 @@ const ProgramsSection = () => {
 
       {/* Background Doodles */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 transform -rotate-12 text-orange-200 opacity-60">
+        {/* Top Area */}
+        <div className="absolute top-[5%] left-[5%] transform -rotate-12 text-orange-200 opacity-60">
           <Star className="w-24 h-24 fill-current" strokeWidth={1.5} />
         </div>
-        <div className="absolute bottom-40 right-10 transform rotate-12 text-teal-200 opacity-60">
-          <Heart className="w-32 h-32 fill-current" strokeWidth={1.5} />
+        <div className="absolute top-[8%] right-[10%] text-yellow-300 opacity-60">
+          <Sun className="w-20 h-20" strokeWidth={1.5} />
         </div>
-        <div className="absolute top-1/3 right-1/4 transform rotate-45 text-pink-200 opacity-40">
-          <Star className="w-16 h-16 fill-current" />
-        </div>
-        <div className="absolute bottom-20 left-1/4 transform -rotate-12 text-yellow-200 opacity-50">
-          <div className="w-20 h-20 rounded-full bg-current" />
+        <div className="absolute top-[15%] left-[30%] text-blue-100 opacity-80">
+          <Cloud className="w-32 h-32 fill-current" strokeWidth={1} />
         </div>
 
-        {/* Dashed Path Background (Abstract) */}
-        <svg className="absolute top-0 left-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#F4A261" strokeWidth="1" strokeDasharray="4 4" />
-        </svg>
+        {/* Middle Area Left */}
+        <div className="absolute top-[35%] left-[2%] text-pink-200 opacity-40">
+          <Music className="w-16 h-16 transform -rotate-12" />
+        </div>
+        <div className="absolute top-[45%] left-[15%] text-purple-200 opacity-30">
+          <Sparkles className="w-12 h-12" />
+        </div>
+        <div className="absolute top-[55%] left-[5%] text-green-100 opacity-60">
+          <Palette className="w-20 h-20" strokeWidth={1.5} />
+        </div>
+
+        {/* Middle Area Right */}
+        <div className="absolute top-[30%] right-[5%] transform rotate-12 text-teal-200 opacity-60">
+          <Heart className="w-32 h-32 fill-current" strokeWidth={1.5} />
+        </div>
+        <div className="absolute top-[40%] right-[15%] text-orange-100 opacity-50">
+          <Footprints className="w-24 h-24 transform rotate-45" strokeWidth={1} />
+        </div>
+        <div className="absolute top-[50%] right-[2%] transform rotate-12 text-teal-200 opacity-60">
+          <Heart className="w-16 h-16 fill-current" strokeWidth={1.5} />
+        </div>
+
+        {/* Bottom Area */}
+        <div className="absolute bottom-[20%] left-[10%] text-pink-200 opacity-40">
+          <div className="w-16 h-16 rounded-full bg-current blur-2xl" />
+        </div>
+        <div className="absolute bottom-[25%] right-[10%] transform -rotate-12 text-yellow-200 opacity-50">
+          <Star className="w-20 h-20 fill-current" />
+        </div>
+        <div className="absolute bottom-[10%] right-[30%] text-blue-100 opacity-60">
+          <Cloud className="w-24 h-24 fill-current" strokeWidth={1} />
+        </div>
+        <div className="absolute bottom-[5%] left-[20%] text-green-200 opacity-40">
+          <Sparkles className="w-14 h-14" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 relative">
           <motion.div
             initial={{ scale: 0, rotate: -5 }}
             whileInView={{ scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            className="inline-block bg-white border-2 border-black px-6 py-2 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-4 transform -rotate-2"
+            className="inline-block bg-white border border-neutral-200 px-6 py-2 rounded-full shadow-sm mb-4 transform -rotate-2"
           >
-            <span className="font-bold text-neutral-800 text-sm uppercase tracking-widest">A Day in the Life</span>
+            <span className="font-bold text-neutral-600 text-sm uppercase tracking-widest">A Day in the Life</span>
           </motion.div>
           <h2 className="text-4xl md:text-6xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting leading-tight">
             Every Day is a <span className="text-[hsl(var(--premium-orange))]">New Adventure!</span>
           </h2>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {activities.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: "spring", bounce: 0.4 }}
-              whileHover={{ y: -10, rotate: index % 2 === 0 ? 2 : -2 }}
-              className="group relative"
-            >
-              {/* Connector Line (Desktop) */}
-              {index < activities.length - 1 && (
-                <div className={`hidden lg:block absolute top-1/2 -right-8 w-16 h-1 border-t-4 border-dashed border-orange-300 z-0 ${(index + 1) % 4 === 0 ? 'hidden' : '' // Hide on last item of row
-                  }`} />
-              )}
+        {/* Two-Column Timeline Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 relative">
 
-              {/* Card */}
-              <div className={`relative bg-white border-2 border-black rounded-3xl p-6 h-full min-h-[320px] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow group-hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] z-10 flex flex-col items-center text-center justify-between overflow-hidden`}>
+          {/* LEFT COLUMN - Morning */}
+          <div className="relative">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-bold text-sm tracking-wider uppercase border border-blue-300 shadow-sm">Morning Explorations</span>
+            </div>
 
-                {/* Image Sticker */}
-                <div className={`w-28 h-28 bg-white border-2 border-black rounded-2xl overflow-hidden mb-4 transform -rotate-3 group-hover:rotate-3 transition-transform duration-300 shadow-sm relative`}>
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                </div>
+            {/* Path Left */}
+            <div className="absolute left-8 md:left-[2.5rem] top-20 bottom-0 w-1 bg-blue-200 border-l-2 border-dashed border-blue-300 opacity-60" />
 
-                <h3 className="text-xl font-black text-neutral-800 mb-2 font-handwriting">
-                  {item.title}
-                </h3>
+            <div className="space-y-16">
+              {leftActivities.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.2 }}
+                  className="relative pl-24 md:pl-32"
+                >
+                  {/* Time Bubble */}
+                  <div className="absolute left-0 top-0 z-20">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg bg-blue-50 flex items-center justify-center text-center p-1 transform -rotate-12 hover:rotate-0 transition-transform duration-300">
+                      <div className="leading-none">
+                        <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600" />
+                        <span className="block text-[10px] md:text-xs font-bold text-blue-800">{item.time}</span>
+                      </div>
+                    </div>
+                  </div>
 
-                <p className="text-sm text-neutral-700 font-medium leading-relaxed mb-4">
-                  {item.description}
-                </p>
+                  {/* Connector */}
+                  <div className="absolute left-16 top-8 w-8 md:w-16 h-1 bg-blue-200 border-t-2 border-dashed border-orange-300" />
 
-                {/* Decorative Tape */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-4 bg-white/50 border border-black/10 transform rotate-2 backdrop-blur-sm" />
-              </div>
-            </motion.div>
-          ))}
+                  {/* Card */}
+                  <div className={`
+                       relative bg-white p-5 rounded-[2rem] border border-neutral-100
+                       shadow-[4px_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[4px_12px_30px_rgba(0,0,0,0.12)]
+                       transition-all duration-300 hover:-translate-y-1 group
+                    `}>
+                    {/* Tape */}
+                    <div className="absolute -top-3 right-8 w-12 h-4 bg-yellow-100/50 border border-white/40 rotate-3" />
+
+                    <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start text-center sm:text-left">
+                      <div className="relative w-24 h-24 flex-shrink-0">
+                        <div className={`absolute inset-0 ${item.color} opacity-40 rounded-full blur-xl`} />
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-2xl shadow-sm rotate-3 group-hover:rotate-0 transition-transform" />
+                      </div>
+                      <div>
+                        <h3 className={`text-xl font-black ${item.text} mb-2 font-handwriting`}>{item.title}</h3>
+                        <p className="text-sm text-neutral-600 leading-relaxed font-medium">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - Afternoon */}
+          <div className="relative mt-12 lg:mt-0">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full font-bold text-sm tracking-wider uppercase border border-blue-300 shadow-sm">Afternoon Adventures</span>
+            </div>
+
+            {/* Path Right */}
+            <div className="absolute left-8 md:left-[2.5rem] top-20 bottom-0 w-1 bg-blue-200 border-l-2 border-dashed border-blue-300 opacity-60" />
+
+            <div className="space-y-16">
+              {rightActivities.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.2 }}
+                  className="relative pl-24 md:pl-32"
+                >
+                  {/* Time Bubble */}
+                  <div className="absolute left-0 top-0 z-20">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg bg-blue-50 flex items-center justify-center text-center p-1 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                      <div className="leading-none">
+                        <Clock className="w-4 h-4 mx-auto mb-1 text-blue-600" />
+                        <span className="block text-[10px] md:text-xs font-bold text-blue-800">{item.time}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connector */}
+                  <div className="absolute left-16 top-8 w-8 md:w-16 h-1 bg-blue-200 border-t-2 border-dashed border-blue-300" />
+
+                  {/* Card */}
+                  <div className={`
+                       relative bg-white p-5 rounded-[2rem] border border-neutral-100
+                       shadow-[4px_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[4px_12px_30px_rgba(0,0,0,0.12)]
+                       transition-all duration-300 hover:-translate-y-1 group
+                    `}>
+                    {/* Tape */}
+                    <div className="absolute -top-3 right-8 w-12 h-4 bg-blue-100/50 border border-white/40 -rotate-2" />
+
+                    <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start text-center sm:text-left">
+                      <div className="relative w-24 h-24 flex-shrink-0">
+                        <div className={`absolute inset-0 ${item.color} opacity-40 rounded-full blur-xl`} />
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover rounded-2xl shadow-sm -rotate-2 group-hover:rotate-0 transition-transform" />
+                      </div>
+                      <div>
+                        <h3 className={`text-xl font-black ${item.text} mb-2 font-handwriting`}>{item.title}</h3>
+                        <p className="text-sm text-neutral-600 leading-relaxed font-medium">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
       </div>
