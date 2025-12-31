@@ -11,7 +11,7 @@ interface SEOProps {
 export const useSEO = ({
   title,
   description,
-  keywords = "preschool Chennai, daycare Chennai, best preschool, Basil Woods Juniors",
+  keywords = "preschool Chennai, daycare Chennai, Basil Woods Juniors, Thiruvanmiyur preschool, Montessori Besant Nagar, kindergarten admission 2025, play school near me, best preschool in Chennai",
   ogImage = "https://www.basilwoodschennai.in/og-image.jpg",
   canonical
 }: SEOProps) => {

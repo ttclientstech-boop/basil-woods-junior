@@ -2,6 +2,12 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import { Star, Quote, Pin } from "lucide-react";
 
+
+import Testimonial1 from "@/assets/Images/test 2.jpg";
+import Testimonial2 from "@/assets/Images/test 2.jpg";
+import Testimonial3 from "@/assets/Images/test 2.jpg";
+import Testimonial4 from "@/assets/Images/test 2.jpg";
+
 const playgroundTestimonials = [
   {
     text: "Our daughter absolutely loves coming to Basil Woods! The caring teachers and engaging activities have made her more confident.",
@@ -10,7 +16,8 @@ const playgroundTestimonials = [
     rating: 5,
     color: "bg-yellow-50",
     shadow: "shadow-yellow-400",
-    rotation: "rotate-1"
+    rotation: "rotate-1",
+    image: Testimonial1
   },
   {
     text: "The focus on values along with academics is what sets this school apart. We are so happy with our decision.",
@@ -19,7 +26,8 @@ const playgroundTestimonials = [
     rating: 5,
     color: "bg-blue-50",
     shadow: "shadow-blue-400",
-    rotation: "-rotate-2"
+    rotation: "-rotate-2",
+    image: Testimonial2
   },
   {
     text: "A wonderful environment for kids to grow. The infrastructure is top-notch and the staff is incredibly supportive.",
@@ -28,7 +36,8 @@ const playgroundTestimonials = [
     rating: 5,
     color: "bg-green-50",
     shadow: "shadow-green-400",
-    rotation: "rotate-2"
+    rotation: "rotate-2",
+    image: Testimonial3
   },
   {
     text: "My son has learned so much in just a few months. The 'Culture Connect' program is truly unique and amazing.",
@@ -37,7 +46,8 @@ const playgroundTestimonials = [
     rating: 5,
     color: "bg-pink-50",
     shadow: "shadow-pink-400",
-    rotation: "-rotate-1"
+    rotation: "-rotate-1",
+    image: Testimonial4
   }
 ];
 
@@ -114,8 +124,12 @@ export default function Testimonials() {
                 </div>
 
                 <div className="flex items-center gap-3 pt-4 border-t-2 border-dashed border-neutral-200">
-                  <div className={`w-10 h-10 rounded-full border-2 border-black flex items-center justify-center font-bold ${t.color.replace('50', '200')}`}>
-                    {t.name.charAt(0)}
+                  <div className={`w-10 h-10 rounded-full border-2 border-black flex items-center justify-center font-bold overflow-hidden ${t.color.replace('50', '200')}`}>
+                    {t.image ? (
+                      <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                    ) : (
+                      t.name.charAt(0)
+                    )}
                   </div>
                   <div>
                     <div className="font-black text-sm uppercase tracking-wide text-neutral-900">

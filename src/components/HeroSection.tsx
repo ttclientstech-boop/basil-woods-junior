@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Play, Sparkles, Star, Sun, Cloud, Heart, ArrowRight, Bird, Calendar, Music, Pencil, BookOpen, Palette, Puzzle } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from 'react-icons/fa';
 import VideoModal from "@/components/ui/video-modal";
 
@@ -20,7 +20,30 @@ const handleWhatsAppRedirect = () => {
 const HeroSection = () => {
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const images = [picture1, picture2, picture3];
+  const heroContent = [
+    {
+      titlePrefix: "Preschool in",
+      highlight: "Thiruvanmiyur",
+      description: "Award-winning independent preschool offering Montessori & play-based learning. We nurture curiosity, creativity, and confidence in every child.",
+      image: picture1,
+      color: "bg-[hsl(var(--premium-pink))]"
+    },
+    {
+      titlePrefix: "Nurturing",
+      highlight: "Future Leaders",
+      description: "Building strong foundations through a blend of modern education and traditional Indian values.",
+      image: picture2,
+      color: "bg-[hsl(var(--premium-orange))]"
+    },
+    {
+      titlePrefix: "Learning Through",
+      highlight: "Pure Joy",
+      description: "A magical environment where every day is a new adventure in creativity, exploration, and fun.",
+      image: picture3,
+      color: "bg-[hsl(var(--premium-teal))]"
+    }
+  ];
+
   const [active, setActive] = useState(0);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 300], [0, 100]);
@@ -29,10 +52,10 @@ const HeroSection = () => {
   // Auto-advance carousel
   useEffect(() => {
     const id = setInterval(() => {
-      setActive((prev) => (prev + 1) % images.length);
+      setActive((prev) => (prev + 1) % heroContent.length);
     }, 4000);
     return () => clearInterval(id);
-  }, [images.length]);
+  }, [heroContent.length]);
 
   return (
     <section className="relative min-h-[90vh] flex items-center  bg-blue-50 overflow-hidden pt-12 pb-12 md:pt-0 md:pb-0">
@@ -56,7 +79,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-     
+
       {/* Animated Background Elements - Emerging Vectors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div
@@ -132,28 +155,47 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[hsl(var(--brand-dark-green))] leading-[1] tracking-tight mb-6 font-handwriting">
-                Where Little <br className="hidden lg:block" />
-                <span className="relative inline-block mt-2">
-                  <span className="relative z-10 text-white px-2" style={{ textShadow: '4px 4px 0px black' }}>
-                    Minds Bloom
+            <div className="min-h-[200px] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
+                >
+                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[hsl(var(--brand-dark-green))] leading-[1] tracking-tight mb-6 font-handwriting">
+                    {heroContent[active].titlePrefix} <br className="hidden lg:block" />
+                    <span className="relative inline-block mt-2">
+                      <span className="relative z-10 text-white px-2" style={{ textShadow: '4px 4px 0px black' }}>
+                        {heroContent[active].highlight}
+                      </span>
+                      <span className={`absolute inset-0 ${heroContent[active].color} transform -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-0`} />
+                    </span>
+                  </h1>
+
+                  <p className="text-xl md:text-2xl text-neutral-700 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 font-handwriting">
+                    {heroContent[active].description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+              {/* Invisible spacer to maintain layout height based on longest content if needed, currently using min-h */}
+              <div className="opacity-0 pointer-events-none relative z-[-1]">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1] tracking-tight mb-6 font-handwriting">
+                  Preschool in <br className="hidden lg:block" />
+                  <span className="relative inline-block mt-2">
+                    <span className="relative z-10 px-2">Thiruvanmiyur</span>
                   </span>
-                  <span className="absolute inset-0 bg-[hsl(var(--premium-pink))] transform -rotate-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-0" />
-                </span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-neutral-700 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 font-handwriting">
-                A magical place where learning meets play. We nurture curiosity, creativity, and confidence in every child.
-              </p>
-            </motion.div>
+                  <p className="text-xl md:text-2xl font-medium leading-relaxed max-w-xl">
+                    Award-winning independent preschool offering Montessori & play-based learning. We nurture curiosity, creativity, and confidence in every child.
+                  </p>
+                </h1>
+              </div>
+            </div>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-32 lg:pt-24"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -211,10 +253,10 @@ const HeroSection = () => {
 
               {/* Image Container */}
               <div className="absolute inset-4 rounded-[2.5rem] overflow-hidden border-2 border-black z-10 bg-neutral-100">
-                {images.map((src, idx) => (
+                {heroContent.map((content, idx) => (
                   <motion.img
                     key={idx}
-                    src={src}
+                    src={content.image}
                     alt={`Basil Woods slide ${idx + 1}`}
                     className="absolute inset-0 w-full h-full object-cover"
                     initial={{ opacity: 0 }}

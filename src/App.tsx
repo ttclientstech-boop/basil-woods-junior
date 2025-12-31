@@ -16,6 +16,8 @@ import WhatsAppBubble from "@/components/ui/whatsapp-bubble";
 import Building from "./pages/Building";
 import Campuses from "./pages/OtherCampuses";
 import { ScrollToTop } from "./components/ui/scrollToTop";
+import SchemaMarkup from "@/components/SchemaMarkup";
+import { organizationSchema } from "@/data/schema";
 
 import ScrollProgress from "./components/ui/scroll-progress";
 
@@ -24,7 +26,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-
+      <SchemaMarkup schema={organizationSchema} />
 
       {/* Scroll Progress Indicator */}
       <ScrollProgress />

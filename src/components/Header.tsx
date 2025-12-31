@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "/BWJ Logos.png";
 import Cambridge from "../assets/Images/Cambridge.jpeg"
 import logo3 from "../assets/Images/Logo3.png"
-import HKM from "../assets/Images/Logo3.png" // Placeholder for HKM Logo
+import HKM from "../assets/Images/HKM.png"
 import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
@@ -65,40 +65,55 @@ const Header = () => {
       {/* Main Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-2 border-b-2 border-neutral-100"
-          : "bg-white py-4 border-b-2 border-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-md py-1 border-b-2 border-neutral-100"
+          : "bg-white py-1 border-b-2 border-transparent"
           }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="w-full px-2 md:px-6">
           <div className="flex items-center justify-between">
 
             {/* Logo Section */}
-            <div className="flex items-center gap-4 md:gap-6 relative z-50">
+            <div className="flex items-center gap-2 md:gap-4 relative z-50">
+
+              {/* 1. Basil Woods Logo */}
               <Link to="/" className="block">
                 <motion.img
                   src={logo}
                   alt="Basil Woods Juniors"
-                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20" : "w-32 md:w-48"}`}
+                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-24" : "w-28 md:w-36 lg:w-44"}`}
                   whileHover={{ scale: 1.05 }}
                 />
               </Link>
 
-              {/* Partner Logos */}
-              <div className="items-center gap-3 md:gap-4 border-l-2 border-neutral-300 pl-4">
+              {/* Separator 1 */}
+              <div className="h-10 md:h-48 w-[1.5px] bg-neutral-300 rounded-full mx-1 md:mx-1"></div>
+
+              {/* 2. Culture Connect Logo */}
+              <Link to="/" className="block">
+                  <img
+                    src={logo3}
+                    alt="ISKCON"
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-28"}`}
+                  />
+                </Link>
+
+              {/* 3. Stacked: Cambridge & ISKCON */}
+              <div className="flex flex-col gap-6">
                 <Link to="/" className="block">
                   <img
                     src={Cambridge}
                     alt="Cambridge"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-10" : "w-14 md:w-20"}`}
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-64"}`}
                   />
                 </Link>
-                <Link to="/" className="block">
-                  <img
-                    src={logo3}
-                    alt="Culture Connect"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-10" : "w-14 md:w-20"}`}
-                  />
-                </Link>
+                 <Link to="/" className="block">
+                <img
+                  src={HKM}
+                  alt="Culture Connect"
+                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-64"}`}
+                />
+              </Link>
+                
               </div>
             </div>
 

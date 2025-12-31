@@ -77,24 +77,37 @@ const Footer = () => {
             </p>
 
             <div className="space-y-4 pt-4">
-              <div className="flex items-start gap-3 group">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-black transition-colors">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=No.+10,+Vinod+Illam,+2nd+St,+RBI+Colony,+Thiruvanmiyur,+Chennai,+Tamil+Nadu+600041"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group hover:opacity-90 transition-opacity"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-black transition-colors shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="text-sm text-white/90 leading-tight pt-1">No. 10, Vinod Illam, 2nd St, RBI Colony, Thiruvanmiyur, Chennai, Tamil Nadu 600041</span>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-green-400 group-hover:text-black transition-colors">
+                <span className="text-sm text-white/90 leading-tight pt-1 group-hover:text-yellow-400 transition-colors">No. 10, Vinod Illam, 2nd St, RBI Colony, Thiruvanmiyur, Chennai, Tamil Nadu 600041</span>
+              </a>
+
+              <a
+                href="tel:+918056179108"
+                className="flex items-center gap-3 group hover:opacity-90 transition-opacity"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-green-400 group-hover:text-black transition-colors shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="text-sm text-white/90">+91 8056179108</span>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-pink-400 group-hover:text-black transition-colors">
+                <span className="text-sm text-white/90 group-hover:text-green-400 transition-colors">+91 8056179108</span>
+              </a>
+
+              <a
+                href="mailto:Info.chennai@basilwoods.in"
+                className="flex items-center gap-3 group hover:opacity-90 transition-opacity"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-pink-400 group-hover:text-black transition-colors shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="text-sm text-white/90">Info.chennai@basilwoods.in</span>
-              </div>
+                <span className="text-sm text-white/90 group-hover:text-pink-400 transition-colors">Info.chennai@basilwoods.in</span>
+              </a>
             </div>
           </div>
 

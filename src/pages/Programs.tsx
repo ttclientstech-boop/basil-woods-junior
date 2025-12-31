@@ -12,6 +12,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from 'react-icons/fa';
 import VideoModal from "@/components/ui/video-modal";
+import SchemaMarkup from "@/components/SchemaMarkup";
 
 /* Import Images */
 import program1 from "../assets/Images/Program1.png";
@@ -102,8 +103,29 @@ const ProgramsPage = () => {
     { time: "3:00 PM", activity: "Departure", icon: "👋" },
   ];
 
+  const programsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Preschool Programs",
+    "itemListElement": programs.map((program, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Course",
+        "name": program.name,
+        "description": program.description,
+        "provider": {
+          "@type": "Organization",
+          "name": "Basil Woods Juniors Chennai",
+          "url": "https://www.basilwoodschennai.in"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-[#fffdf5] font-sans">
+      <SchemaMarkup schema={programsSchema} />
       <Header />
 
       {/* HERO - "Explorer's Guide" */}
@@ -157,7 +179,14 @@ const ProgramsPage = () => {
                 <div className="w-full md:w-1/2 relative group">
                   <div className={`absolute inset-0 ${program.color} rounded-xl transform ${program.rotate} group-hover:rotate-0 transition-transform duration-300 shadow-lg border-2 ${program.borderColor}`} />
                   <div className="relative bg-white p-3 rounded-xl border-2 border-white shadow-md transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
-                    <img src={program.image} alt={program.name} className="w-full h-64 object-cover rounded-lg border border-neutral-100" />
+                    <img
+                      src={program.image}
+                      alt={program.name}
+                      className="w-full h-64 object-cover rounded-lg border border-neutral-100"
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                    />
                     {/* Stamp */}
                     <div className="absolute -top-4 -right-4 bg-white p-2 rounded-full shadow-md border-2 border-neutral-200 transform rotate-12">
                       <div className="w-12 h-12 rounded-full border-2 border-dashed border-neutral-300 flex items-center justify-center text-2xl">
@@ -239,6 +268,9 @@ const ProgramsPage = () => {
                   src={program4}
                   alt="A Day in Basil Woods Juniors"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={1280}
+                  height={720}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                   <div className="w-20 h-14 bg-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
