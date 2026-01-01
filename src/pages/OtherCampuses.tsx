@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MapPin, Phone, Landmark, Plane, Globe, Navigation } from "lucide-react";
+import { DoodleRocket, DoodleCloud, DoodleSun, DoodleBird } from "@/components/ui/doodles";
 import { motion } from "framer-motion";
 
 /* Optional placeholder images per campus */
@@ -151,11 +152,14 @@ const OtherCampuses: React.FC = () => {
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')]" />
 
                 {/* Floating Elements */}
-                <motion.div className="absolute top-20 left-10 text-blue-400 opacity-60" animate={{ x: [0, 20, 0], y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity }}>
-                    <Plane className="w-16 h-16 fill-current transform rotate-12" />
+                <motion.div className="absolute top-20 left-10 text-blue-600/30" animate={{ x: [0, 20, 0], y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+                    <DoodleRocket className="w-20 h-20 transform rotate-45" />
                 </motion.div>
-                <motion.div className="absolute bottom-20 right-10 text-green-400 opacity-60" animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-                    <Globe className="w-16 h-16" />
+                <motion.div className="absolute bottom-20 right-10 text-green-700/30" animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+                    <DoodleCloud className="w-24 h-16" />
+                </motion.div>
+                <motion.div className="absolute top-32 right-32 text-yellow-600/30 hidden md:block" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 8, repeat: Infinity }}>
+                    <DoodleSun className="w-16 h-16" />
                 </motion.div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">

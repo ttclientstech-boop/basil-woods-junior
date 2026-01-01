@@ -7,6 +7,8 @@ import {
   MapPin, Phone, Mail, Clock, Send, MessageCircle, Calendar, Navigation, Heart, Star, PhoneCall,
   Cloud, Sun, Sparkles, Plane, Download
 } from "lucide-react";
+import { DoodleBird, DoodleCloud, DoodleSparkle, DoodlePencil } from "@/components/ui/doodles";
+import boyVectorImg from "@/assets/Images/boy vector.webp";
 
 
 import Header from "@/components/Header";
@@ -118,11 +120,17 @@ const ContactUsPage: React.FC = () => {
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
         {/* Floating Icons */}
-        <motion.div className="absolute top-20 left-10 text-orange-400 opacity-60" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-          <Mail className="w-16 h-16 fill-current" />
+        <motion.div className="absolute top-20 left-10 text-[hsl(var(--premium-orange))]/40" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+          <DoodleBird className="w-20 h-16" />
         </motion.div>
-        <motion.div className="absolute bottom-20 right-10 text-teal-400 opacity-60" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
-          <Phone className="w-16 h-16 fill-current" />
+        <motion.div className="absolute bottom-20 right-10 text-teal-700/30" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20" />
+        </motion.div>
+        <motion.div className="absolute top-32 right-32 text-yellow-600/30" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 3, repeat: Infinity }}>
+          <DoodleSparkle className="w-12 h-12" />
+        </motion.div>
+        <motion.div className="absolute bottom-40 left-32 text-[hsl(var(--brand-dark-green))]/20" animate={{ rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+          <DoodlePencil className="w-24 h-24 transform -rotate-45" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -152,6 +160,15 @@ const ContactUsPage: React.FC = () => {
 
                 <h2 className="text-4xl font-black text-neutral-800 font-handwriting mb-3 relative z-10">Send us a Message</h2>
                 <p className="text-neutral-600 mb-10 text-lg relative z-10">Fill out the form below and we'll get back to you shortly.</p>
+
+                {/* Animated Boy Vector */}
+                <motion.div
+                  className="absolute bottom-10 -right-10 pointer-events-none z-0 opacity-20 lg:opacity-100 lg:right-5 lg:bottom-20"
+                  animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <img src={boyVectorImg} alt="Student" className="w-48 drop-shadow-lg" />
+                </motion.div>
 
                 <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-6">

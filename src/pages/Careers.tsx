@@ -5,11 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import {
   MapPin, Phone, Users, Send, Heart, Star, Award, Target, Lightbulb, BookOpen, Sprout, Leaf, Flower2, Sun
 } from "lucide-react";
+import { DoodleLeaf, DoodleFlower, DoodleSun, DoodleCloud } from "@/components/ui/doodles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
 import { useSEO } from "@/hooks/useSEO";
 import { motion } from "framer-motion";
+import elephantImg from "@/assets/Images/elephant.png";
+import monkeyImg from "@/assets/Images/monkey.png";
 
 const CareersPage = () => {
   useSEO({
@@ -83,11 +86,17 @@ const CareersPage = () => {
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/leaves.png')]" />
 
         {/* Floating Leaves */}
-        <motion.div className="absolute top-20 left-10 text-green-400 opacity-60" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-          <Leaf className="w-16 h-16 fill-current" />
+        <motion.div className="absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]/40" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+          <DoodleLeaf className="w-20 h-20" />
         </motion.div>
-        <motion.div className="absolute bottom-20 right-10 text-teal-400 opacity-60" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
-          <Sprout className="w-16 h-16 fill-current" />
+        <motion.div className="absolute bottom-20 right-10 text-teal-600/30" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <DoodleFlower className="w-24 h-24" />
+        </motion.div>
+        <motion.div className="absolute top-10 right-20 text-yellow-600/20" animate={{ rotate: [0, 20, 0] }} transition={{ duration: 7, repeat: Infinity }}>
+          <DoodleSun className="w-24 h-24" />
+        </motion.div>
+        <motion.div className="absolute bottom-32 left-32 text-green-700/10" animate={{ x: [0, 30, 0] }} transition={{ duration: 10, repeat: Infinity }}>
+          <DoodleCloud className="w-40 h-24" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -130,7 +139,16 @@ const CareersPage = () => {
             })}
           </div>
         </div>
-      </section>
+        {/* Animated Elephant */}
+        <motion.div
+          className="absolute -bottom-4 -left-4 hidden xl:block pointer-events-none z-10"
+          animate={{ rotate: [-2, 2, -2] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <img src={elephantImg} alt="Elephant" className="w-32 drop-shadow-md opacity-90" />
+        </motion.div>
+
+      </section >
 
       {/* POSITIONS - "Job Board" */}
       <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-amber-50 border-y-8 border-amber-200/50">
@@ -140,6 +158,15 @@ const CareersPage = () => {
               <h2 className="text-3xl font-black text-neutral-800 font-handwriting">Current Openings</h2>
             </div>
           </div>
+
+          {/* Animated Monkey */}
+          <motion.div
+            className="absolute top-0 right-10 hidden xl:block pointer-events-none z-10"
+            animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <img src={monkeyImg} alt="Monkey" className="w-24 drop-shadow-md opacity-90" />
+          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {openPositions.map((job, i) => (
@@ -175,10 +202,10 @@ const CareersPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* VALUES - "Roots of Success" */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      < section className="py-20 bg-white relative overflow-hidden" >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting mb-2">Our Roots</h2>
@@ -199,10 +226,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* PROCESS - "Stepping Stones" */}
-      <section className="py-20 bg-[#f0fdf4]">
+      < section className="py-20 bg-[#f0fdf4]" >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-neutral-800 font-handwriting mb-2">How to Apply</h2>
@@ -230,10 +257,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* CTA - "Join Family" */}
-      <section className="py-20 bg-white">
+      < section className="py-20 bg-white" >
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center bg-orange-50 rounded-[3rem] p-12 border-4 border-white shadow-xl outline outline-4 outline-orange-100">
             <Heart className="w-12 h-12 text-orange-500 fill-current mx-auto mb-6" />
@@ -261,10 +288,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       <Footer />
-    </div>
+    </div >
   );
 };
 

@@ -9,6 +9,7 @@ import {
   Heart,
   ArrowRight
 } from "lucide-react";
+import { DoodlePeacockFeather, DoodleLotus, DoodleCloud, DoodleSun, DoodleSparkle } from "@/components/ui/doodles";
 import { RiFacebookCircleFill, RiInstagramFill, RiYoutubeFill } from "react-icons/ri";
 
 const Footer = () => {
@@ -40,13 +41,20 @@ const Footer = () => {
       {/* Background Doodles */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <div className="absolute top-10 left-10 text-white transform -rotate-12">
-          <Star className="w-12 h-12" strokeWidth={1.5} />
+          <DoodleSun className="w-24 h-24 text-yellow-200" strokeWidth={1.5} />
         </div>
         <div className="absolute bottom-20 right-10 text-white transform rotate-12">
-          <Heart className="w-16 h-16" strokeWidth={1.5} />
+          <DoodleLotus className="w-32 h-24 text-pink-200" strokeWidth={1.5} />
         </div>
-        <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-yellow-400 rounded-full" />
-        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-pink-400 rounded-full" />
+        <div className="absolute top-1/2 left-1/4">
+          <DoodleCloud className="w-32 h-20 text-white" />
+        </div>
+        <div className="absolute bottom-10 left-1/3 opacity-20">
+          <DoodlePeacockFeather className="w-40 h-80 text-teal-200 rotate-45" />
+        </div>
+        <div className="absolute top-20 right-1/4">
+          <DoodleSparkle className="w-12 h-12 text-yellow-200" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

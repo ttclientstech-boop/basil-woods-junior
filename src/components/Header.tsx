@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Menu, X, Calendar, MessageCircle, Palette } from "lucide-react";
+import { DoodleBird, DoodleSun, DoodleSparkle } from "@/components/ui/doodles";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -70,7 +71,17 @@ const Header = () => {
           }`}
       >
         <div className="w-full px-2 md:px-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
+            {/* Decorative Doodles */}
+            {/* <div className="absolute -top-6 -left-8 hidden xl:block pointer-events-none opacity-80">
+              <DoodleSun className="w-20 h-20 text-yellow-400 rotate-12" />
+            </div> */}
+            {/* <div className="absolute -bottom-8 left-1/3 hidden lg:block pointer-events-none opacity-60">
+              <DoodleBird className="w-12 h-8 text-[hsl(var(--premium-teal))]" />
+            </div> */}
+            <div className="absolute top-0 right-[25%] hidden xl:block pointer-events-none opacity-0">
+              <DoodleSparkle className="w-8 h-8 text-yellow-400 animate-pulse" />
+            </div>
 
             {/* Logo Section */}
             <div className="flex items-center gap-2 md:gap-4 relative z-50">
@@ -87,16 +98,6 @@ const Header = () => {
 
               {/* Separator 1 */}
               <div className="h-10 md:h-48 w-[1.5px] bg-neutral-300 rounded-full mx-1 md:mx-1"></div>
-
-              {/* 2. Culture Connect Logo */}
-              <Link to="/" className="block">
-                <img
-                  src={logo3}
-                  alt="ISKCON"
-                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-28"}`}
-                />
-              </Link>
-
               {/* 3. Stacked: Cambridge & ISKCON */}
               <div className="flex flex-col gap-6">
                 <Link to="/" className="block">
@@ -115,6 +116,17 @@ const Header = () => {
                 </Link>
 
               </div>
+              {/* 2. Culture Connect Logo */}
+              <Link to="/" className="block">
+                <img
+                  src={logo3}
+                  alt="ISKCON"
+                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-28"}`}
+                />
+              </Link>
+
+
+
             </div>
 
             {/* Desktop Navigation - Tab Style */}

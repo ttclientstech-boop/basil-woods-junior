@@ -1,9 +1,14 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Heart, Calendar, Phone, Target, Lightbulb, Shield, Award, Pin, MapPin, Sparkles, Building2, Trophy, Users, GraduationCap, Map } from "lucide-react";
+import { DoodleBlob, DoodleLeaf, DoodleFlower, DoodleSparkle, DoodleWave } from "@/components/ui/doodles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useRef } from "react";
+import degreeImg from "@/assets/Images/degree.png";
+import tulsiImg from "@/assets/Images/tulsi.webp";
 import { useSEO } from "@/hooks/useSEO";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from 'react-icons/fa';
@@ -27,6 +32,11 @@ const AboutUsPage = () => {
     keywords: "about Basil Woods, preschool history Chennai, value-based education, cultural preschool Chennai, award-winning preschool, NIVE preschool, holistic child development",
     canonical: "https://www.basilwoodschennai.in/about"
   });
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
 
   const milestones = [
     { year: "2009", title: "Foundation", description: "Started with a vision to blend culture with education.", icon: <Building2 className="w-10 h-10 text-[#2e7d32]" />, color: "bg-[#e8f5e9]", text: "text-[#2e7d32]", border: "border-[#c8e6c9]" },
@@ -137,8 +147,12 @@ const AboutUsPage = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-32 h-32 bg-yellow-200 rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-10 left-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-50" />
+          <div className="absolute top-20 right-10 w-64 h-64 text-yellow-500/30 opacity-60 rotate-12">
+            <DoodleBlob fillColor="currentColor" />
+          </div>
+          {/* <div className="absolute bottom-10 left-10 w-72 h-72 text-pink-500/30 opacity-60 -rotate-12">
+            <DoodleBlob fillColor="currentColor" />
+          </div> */}
 
           {/* Floating Icons */}
           <motion.div
@@ -146,14 +160,14 @@ const AboutUsPage = () => {
             animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <Star className="w-12 h-12 fill-current" />
+            <DoodleSparkle className="w-12 h-12 text-orange-600/60" />
           </motion.div>
           <motion.div
             className="absolute bottom-1/4 right-10 text-teal-400"
             animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
           >
-            <Heart className="w-10 h-10 fill-current" />
+            <DoodleFlower className="w-16 h-16 text-teal-700/60" />
           </motion.div>
         </div>
 
@@ -187,7 +201,23 @@ const AboutUsPage = () => {
       </section>
 
       {/* AWARDS SECTION - "The Corkboard" */}
-      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] relative border-y-8 border-yellow-700/20">
+      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] relative">
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
+          <DoodleWave className="w-full h-8 text-[#8d6e63] opacity-30 transform rotate-180" />
+        </div>
+
+        {/* Animated Degree */}
+        <motion.div
+          className="absolute top-20 right-20 pointer-events-none hidden xl:block z-20"
+          animate={{ rotate: [0, 10, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        >
+          <img src={degreeImg} alt="Degree" className="w-32 drop-shadow-lg" />
+        </motion.div>
+
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+          <DoodleWave className="w-full h-8 text-[#8d6e63] opacity-30" />
+        </div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-white px-6 py-2 rounded-lg shadow-md border border-neutral-200 transform -rotate-2">
@@ -457,31 +487,42 @@ const AboutUsPage = () => {
       {/* CTA - "Ticket Style" */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto relative">
-            <div className="absolute inset-0 bg-[hsl(var(--premium-orange))] rounded-3xl transform rotate-1 opacity-20" />
-            <div className="relative bg-white border-4 border-dashed border-[hsl(var(--premium-orange))] rounded-3xl p-10 text-center shadow-[12px_12px_0px_0px_hsl(var(--premium-orange))]">
-              <h2 className="text-3xl md:text-4xl font-black text-neutral-900 mb-4 font-handwriting">Ready to Visit Our Campus?</h2>
-              <p className="text-lg text-neutral-600 mb-8 font-medium">Schedule a personalized tour and see why families choose Basil Woods Juniors.</p>
+          <motion.div variants={itemVariants} className="max-w-4xl mx-auto mb-16 relative">
+            {/* Animated Tulsi */}
+            <motion.div
+              className="absolute -top-10 -right-10 pointer-events-none hidden lg:block z-10"
+              animate={{ rotate: [0, 3, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src={tulsiImg} alt="Tulsi" className="w-24 drop-shadow-md opacity-90" />
+            </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  onClick={handleWhatsAppRedirect}
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-6 px-8 rounded-xl text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
-                >
-                  <FaWhatsapp className="w-6 h-6 mr-2" />
-                  Chat on WhatsApp
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-2 border-[hsl(var(--premium-orange))] text-[hsl(var(--premium-orange))] hover:bg-orange-50 font-bold py-6 px-8 rounded-xl text-lg"
-                  onClick={() => (window.location.href = "tel:+918056179108")}
-                >
-                  <Phone className="w-6 h-6 mr-2" />
-                  Call Now
-                </Button>
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-orange-100 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-bl-full opacity-50" />
+              <div className="relative bg-white border-4 border-dashed border-[hsl(var(--premium-orange))] rounded-3xl p-10 text-center shadow-[12px_12px_0px_0px_hsl(var(--premium-orange))]">
+                <h2 className="text-3xl md:text-4xl font-black text-neutral-900 mb-4 font-handwriting">Ready to Visit Our Campus?</h2>
+                <p className="text-lg text-neutral-600 mb-8 font-medium">Schedule a personalized tour and see why families choose Basil Woods Juniors.</p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    onClick={handleWhatsAppRedirect}
+                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-6 px-8 rounded-xl text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
+                  >
+                    <FaWhatsapp className="w-6 h-6 mr-2" />
+                    Chat on WhatsApp
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-2 border-[hsl(var(--premium-orange))] text-[hsl(var(--premium-orange))] hover:bg-orange-50 font-bold py-6 px-8 rounded-xl text-lg"
+                    onClick={() => (window.location.href = "tel:+918056179108")}
+                  >
+                    <Phone className="w-6 h-6 mr-2" />
+                    Call Now
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

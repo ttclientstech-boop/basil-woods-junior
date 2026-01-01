@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,6 +8,7 @@ import {
   Clock, Users, Star, Calendar, Download, PlayCircle, Play,
   BookOpen, Palette, Music, Globe, Compass, Map, Binoculars, MapPin, CheckCircle2
 } from "lucide-react";
+import { DoodleSun, DoodleCloud, DoodleBook, DoodlePencil, DoodleRocket } from "@/components/ui/doodles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
@@ -20,6 +22,8 @@ import program1 from "../assets/Images/Program1.png";
 import program2 from "../assets/Images/Program2.png";
 import program3 from "../assets/Images/Program3.png";
 import program4 from "../assets/Images/Program4.png";
+import boySchoolImg from "@/assets/Images/boyschool.webp";
+import calendarImg from "@/assets/Images/calender.png";
 
 const ProgramsPage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -145,11 +149,17 @@ const ProgramsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
 
         {/* Floating Adventure Icons */}
-        <motion.div className="absolute top-20 left-10 text-orange-400 opacity-60" animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-          <Compass className="w-16 h-16" />
+        <motion.div className="absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]/40" animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <DoodlePencil className="w-20 h-20" />
         </motion.div>
-        <motion.div className="absolute top-40 right-20 text-green-400 opacity-60" animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity }}>
-          <Binoculars className="w-14 h-14" />
+        <motion.div className="absolute top-40 right-20 text-[hsl(var(--premium-orange))]/40" animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+          <DoodleBook className="w-24 h-24" />
+        </motion.div>
+        <motion.div className="absolute bottom-20 left-1/4 text-neutral-600/20" animate={{ x: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20" />
+        </motion.div>
+        <motion.div className="absolute top-10 right-1/3 text-yellow-500/40" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity }}>
+          <DoodleSun className="w-16 h-16" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -185,12 +195,12 @@ const ProgramsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                className={`flex flex - col md: flex - row gap - 8 items - center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} `}
                 id={program.name.toLowerCase().replace(/\s+/g, '')}
               >
                 {/* Postcard Image */}
                 <div className="w-full md:w-1/2 relative group">
-                  <div className={`absolute inset-0 ${program.color} rounded-xl transform ${program.rotate} group-hover:rotate-0 transition-transform duration-300 shadow-lg border-2 ${program.borderColor}`} />
+                  <div className={`absolute inset - 0 ${program.color} rounded - xl transform ${program.rotate} group - hover: rotate - 0 transition - transform duration - 300 shadow - lg border - 2 ${program.borderColor} `} />
                   <div className="relative bg-white p-3 rounded-xl border-2 border-white shadow-md transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                     <img
                       src={program.image}
@@ -211,7 +221,7 @@ const ProgramsPage = () => {
 
                 {/* Handwritten Content */}
                 <div className="w-full md:w-1/2 md:px-8 text-center md:text-left">
-                  <h2 className={`text-4xl font-black ${program.textColor} font-handwriting mb-2`}>{program.name}</h2>
+                  <h2 className={`text - 4xl font - black ${program.textColor} font - handwriting mb - 2`}>{program.name}</h2>
                   <div className="inline-block bg-neutral-100 px-3 py-1 rounded-full text-sm font-bold text-neutral-600 mb-4 border border-neutral-200">
                     {program.age} • {program.capacity}
                   </div>
@@ -222,7 +232,7 @@ const ProgramsPage = () => {
                   <div className="grid grid-cols-2 gap-3">
                     {program.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm font-bold text-neutral-600">
-                        <CheckCircle2 className={`w-4 h-4 ${program.textColor}`} />
+                        <CheckCircle2 className={`w - 4 h - 4 ${program.textColor} `} />
                         {feature}
                       </div>
                     ))}
@@ -236,8 +246,26 @@ const ProgramsPage = () => {
 
       {/* SPECIAL PROGRAMS - "Merit Badges" */}
       <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/canvas-orange.png')] border-y-8 border-orange-200">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white text-orange-600 border-2 border-orange-400 px-4 py-1 text-sm font-bold rounded-full mb-8 shadow-sm">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          {/* Boy School Vector */}
+          <motion.div
+            className="absolute top-10 -right-20 hidden xl:block pointer-events-none opacity-80"
+            animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
+            transition={{ duration: 5, repeat: Infinity }}
+          >
+            <img src={boySchoolImg} alt="Student" className="w-40 drop-shadow-md" />
+          </motion.div>
+
+          {/* Calendar Vector */}
+          <motion.div
+            className="absolute bottom-10 -left-20 hidden xl:block pointer-events-none opacity-80"
+            animate={{ rotate: [0, 5, 0], scale: [1, 1.05, 1] }}
+            transition={{ duration: 7, repeat: Infinity }}
+          >
+            <img src={calendarImg} alt="Calendar" className="w-32 drop-shadow-md" />
+          </motion.div>
+
+          <Badge className="bg-white text-orange-600 border-2 border-orange-400 px-4 py-1 text-sm font-bold rounded-full mb-6 shadow-sm">
             Enrichment Activities
           </Badge>
           <h2 className="text-4xl font-black text-[hsl(var(--brand-dark-green))] mb-12 font-handwriting drop-shadow-md">Earn Your Badges!</h2>
@@ -251,8 +279,8 @@ const ProgramsPage = () => {
                   whileHover={{ scale: 1.1 }}
                   className="flex flex-col items-center"
                 >
-                  <div className={`w-32 h-32 rounded-full ${p.color} border-4 border-dashed ${p.border} flex items-center justify-center shadow-[0px_8px_0px_0px_rgba(0,0,0,0.1)] mb-4`}>
-                    <Icon className={`w-12 h-12 ${p.text}`} />
+                  <div className={`w - 32 h - 32 rounded - full ${p.color} border - 4 border - dashed ${p.border} flex items - center justify - center shadow - [0px_8px_0px_0px_rgba(0, 0, 0, 0.1)] mb - 4`}>
+                    <Icon className={`w - 12 h - 12 ${p.text} `} />
                   </div>
                   <h3 className="text-xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting drop-shadow-sm">{p.name}</h3>
                 </motion.div>
@@ -335,7 +363,7 @@ const ProgramsPage = () => {
                 >
                   <FaWhatsapp className="w-6 h-6 mr-2" />
                   Chat on WhatsApp
-                </Button>
+                </Button >
                 <Button
                   variant="outline"
                   className="border-2 border-[hsl(var(--premium-orange))] text-[hsl(var(--premium-orange))] hover:bg-orange-50 font-bold py-6 px-8 rounded-xl text-lg"
@@ -344,14 +372,14 @@ const ProgramsPage = () => {
                   <Download className="w-6 h-6 mr-2" />
                   Download Brochure
                 </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </div >
+            </div >
+          </div >
+        </div >
+      </section >
 
       <Footer />
-    </div>
+    </div >
   );
 };
 

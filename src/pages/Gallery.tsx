@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, ChevronDown, Phone, Camera, Heart, Star, Award, Trophy, Image as ImageIcon } from "lucide-react";
+import { DoodleSparkle, DoodleBird, DoodleSun, DoodleCloud } from "@/components/ui/doodles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
@@ -76,14 +77,30 @@ const GalleryPage = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-orange-100">
         <div className="absolute inset-0 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
 
-        {/* Floating Polaroids */}
+        {/* Floating Polaroids & Doodles */}
         <motion.div
-          className="absolute top-20 right-10 md:right-32 w-32 h-40 bg-white p-2 shadow-lg transform rotate-6 hidden md:block"
+          className="absolute top-10 left-10 text-[hsl(var(--brand-dark-green))]/30 hidden lg:block"
+          animate={{ rotate: [0, 10, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        >
+          <DoodleBird className="w-20 h-20" />
+        </motion.div>
+
+        <motion.div
+          className="absolute top-20 right-10 md:right-32 w-32 h-40 bg-white p-2 shadow-lg transform rotate-6 hidden md:block z-10"
           animate={{ y: [0, -10, 0], rotate: [6, 8, 6] }}
           transition={{ duration: 5, repeat: Infinity }}
         >
           <div className="w-full h-24 bg-neutral-200 mb-2" />
           <div className="h-2 w-16 bg-neutral-100 rounded" />
+        </motion.div>
+
+        <motion.div className="absolute bottom-20 left-20 text-[hsl(var(--premium-orange))]/30 hidden md:block" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 4, repeat: Infinity }}>
+          <DoodleSparkle className="w-12 h-12" />
+        </motion.div>
+
+        <motion.div className="absolute top-1/4 right-1/4 text-yellow-500/20" animate={{ x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">

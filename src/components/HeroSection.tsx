@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Sparkles, Star, Sun, Cloud, Heart, ArrowRight, Bird, Calendar, Music, Pencil, BookOpen, Palette, Puzzle } from "lucide-react";
+import { Play, Sparkles, Star, Heart, ArrowRight, Calendar, Music, Palette, Puzzle } from "lucide-react";
+import { DoodleSun, DoodleCloud, DoodleBird, DoodlePencil, DoodleBook, DoodleRocket, DoodleBulb } from "@/components/ui/doodles";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from 'react-icons/fa';
 import VideoModal from "@/components/ui/video-modal";
@@ -95,20 +96,21 @@ const HeroSection = () => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           style={{ y: y2 }}
         >
-          <Sun className="w-20 h-20 fill-current stroke-2" />
+          <DoodleSun className="w-20 h-20 text-yellow-500" strokeWidth={2} />
         </motion.div>
 
         {/* Floating Icons Array */}
         {[
-          { Icon: Bird, color: "text-blue-400", x: "20%", delay: 0, scale: 1 },
-          { Icon: Cloud, color: "text-[hsl(var(--premium-pink))]", x: "80%", delay: 2, scale: 1.5 },
-          { Icon: Star, color: "text-yellow-400", x: "50%", delay: 1, scale: 0.8 },
-          { Icon: Heart, color: "text-red-400", x: "10%", delay: 3, scale: 1.2 },
-          { Icon: Music, color: "text-purple-400", x: "90%", delay: 1.5, scale: 1.1 },
-          { Icon: Pencil, color: "text-orange-400", x: "30%", delay: 2.5, scale: 0.9 },
-          { Icon: BookOpen, color: "text-green-400", x: "70%", delay: 0.5, scale: 1.3 },
-          { Icon: Palette, color: "text-indigo-400", x: "40%", delay: 3.5, scale: 1 },
-          { Icon: Puzzle, color: "text-teal-400", x: "60%", delay: 1.8, scale: 1.2 },
+          { Icon: DoodleBird, color: "text-blue-600", x: "20%", delay: 0, scale: 1 },
+          { Icon: DoodleCloud, color: "text-pink-600", x: "80%", delay: 2, scale: 1.5 },
+          { Icon: DoodleRocket, color: "text-yellow-600", x: "50%", delay: 1, scale: 0.8 },
+          { Icon: Heart, color: "text-red-600", x: "10%", delay: 3, scale: 1.2 },
+          { Icon: Music, color: "text-purple-600", x: "90%", delay: 1.5, scale: 1.1 },
+          { Icon: DoodlePencil, color: "text-orange-600", x: "30%", delay: 2.5, scale: 0.9 },
+          { Icon: DoodleBook, color: "text-green-600", x: "70%", delay: 0.5, scale: 1.3 },
+          { Icon: DoodleBulb, color: "text-primary", x: "15%", delay: 4, scale: 1 },
+          { Icon: Palette, color: "text-indigo-600", x: "40%", delay: 3.5, scale: 1 },
+          { Icon: Puzzle, color: "text-teal-600", x: "60%", delay: 1.8, scale: 1.2 },
         ].map((item, index) => (
           <motion.div
             key={index}

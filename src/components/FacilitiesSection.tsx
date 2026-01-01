@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { School, Trees, Drama, BookOpen, Palette, ShieldCheck, Star } from "lucide-react";
 import picture1 from "@/assets/Images/Picture5.webp";
 import picture2 from "@/assets/Images/Picture3.webp";
+import busImg from "@/assets/Images/bus.png";
+
+import { DoodleRocket, DoodleSun, DoodleCloud, DoodlePencil, DoodleBook, DoodleSparkle, DoodleBird } from "@/components/ui/doodles";
+import computerImg from "@/assets/Images/computer.png";
 import WaveDivider from "@/components/ui/wave-divider";
 
 const FacilitiesSection = () => {
@@ -70,15 +74,65 @@ const FacilitiesSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-24 bg-[hsl(var(--section-3))] relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-white relative overflow-hidden">
       <WaveDivider position="top" fill="#f6eee7" variant={3} />
 
-      {/* Background Texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-5"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+      {/* Background Animated Doodles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Sun */}
+        <motion.div
+          className="absolute top-[5%] left-[5%] opacity-20 text-yellow-500"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <DoodleSun className="w-24 h-24" />
+        </motion.div>
+
+        {/* Cloud */}
+        <motion.div
+          className="absolute top-[90%] right-[90%]  opacity-15 text-blue-400"
+          animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <DoodleCloud className="w-32 h-20" />
+        </motion.div>
+
+        {/* Pencil */}
+        <motion.div
+          className="absolute top-[40%] left-[2%] opacity-10 text-[hsl(var(--premium-orange))]"
+          animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <DoodlePencil className="w-32 h-32 transform -rotate-12" />
+        </motion.div>
+
+        {/* Bird */}
+        <motion.div
+          className="absolute top-[15%] left-[40%] opacity-10 text-teal-600"
+          animate={{ x: [-20, 20, -20], y: [0, -10, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <DoodleBird className="w-16 h-12" />
+        </motion.div>
+
+        {/* Book */}
+        <motion.div
+          className="absolute bottom-[20%] right-[5%] opacity-10 text-[hsl(var(--brand-dark-green))]"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <DoodleBook className="w-24 h-24" />
+        </motion.div>
+
+        {/* Sparkles */}
+        <motion.div
+          className="absolute top-[30%] right-[25%] opacity-20 text-yellow-500"
+          animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >
+          <DoodleSparkle className="w-10 h-10" />
+        </motion.div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -90,7 +144,7 @@ const FacilitiesSection = () => {
             className="inline-block bg-white border-2 border-black px-6 py-2 rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-4 transform rotate-2"
           >
             <span className="font-bold text-neutral-800 flex items-center gap-2">
-              <School className="w-5 h-5 text-orange-500" />
+              <DoodleRocket className="w-6 h-6 text-orange-500" />
               Our Chennai Campus
             </span>
           </motion.div>
@@ -192,6 +246,23 @@ const FacilitiesSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Animated Vectors */}
+      {/* <motion.div
+        className="absolute bottom-32 left-0 z-20 pointer-events-none hidden xl:block"
+        animate={{ x: [-200, 1500] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      >
+        <img src={busImg} alt="School Bus" className="w-64 drop-shadow-lg opacity-90" />
+      </motion.div> */}
+
+      <motion.div
+        className="absolute top-40 right-10 z-20 pointer-events-none hidden xl:block"
+        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <img src={computerImg} alt="Computer" className="w-32 drop-shadow-md opacity-80" />
+      </motion.div>
 
       <WaveDivider position="bottom" fill="#e3e9fb" variant={4} />
     </section>
