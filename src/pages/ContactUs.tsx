@@ -40,24 +40,9 @@ const ContactUsPage: React.FC = () => {
   const [submitting, setSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<null | "success" | "error">(null);
 
-  // Scroll Animations
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -100]);
-
-  // Mouse Parallax Logic
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 150 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-
-  function handleMouseMove(event: React.MouseEvent) {
-    const { clientX, clientY } = event;
-    const { innerWidth, innerHeight } = window;
-    mouseX.set((clientX / innerWidth - 0.5) * 30);
-    mouseY.set((clientY / innerHeight - 0.5) * 30);
-  }
+  // Scroll Animations - Removed as we are using standard hero
+  // const { scrollY } = useScroll();
+  // ... parallax logic removed
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -125,107 +110,43 @@ const ContactUsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fffdf5] font-sans overflow-hidden" onMouseMove={handleMouseMove}>
+    <div className="min-h-screen bg-[#fffdf5] font-sans overflow-hidden">
       <Header />
 
-      {/* HERO SECTION - Immersive & Interactive */}
-      <section className="relative pt-40 pb-40 overflow-hidden bg-[hsl(var(--brand-dark-green))] text-white">
+      {/* HERO SECTION - Standardized */}
+      <section className="relative pt-24 pb-32 md:pt-32 md:pb-56 overflow-hidden bg-green-50">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-
-          {/* Floating Icons (Parallax) */}
-          <motion.div
-            className="absolute top-20 left-[15%] text-white/20"
-            style={{ x: useTransform(springX, (val) => val * -1.5), y: y2 }}
-          >
-            <MessageCircle className="w-24 h-24 rotate-12" />
-          </motion.div>
-
-          <motion.div
-            className="absolute bottom-32 right-[10%] text-[hsl(var(--premium-orange))]/30"
-            style={{ x: useTransform(springX, (val) => val * 2), y: y1 }}
-          >
-            <Mail className="w-32 h-32 -rotate-12" />
-          </motion.div>
-
-          <motion.div
-            className="absolute top-40 right-[25%] text-[hsl(var(--premium-teal))]/30"
-            animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Phone className="w-16 h-16" />
-          </motion.div>
-
-          {/* Flying Paper Plane */}
-          <motion.div
-            className="absolute top-1/3 left-0 text-white/40"
-            animate={{
-              x: ["-10vw", "110vw"],
-              y: [0, -30, 0, 40, -10],
-              rotate: [10, 0, 10, 20]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          >
-            <Send className="w-20 h-20" />
-            <div className="absolute top-1/2 right-full w-32 h-1 border-t-4 border-dotted border-white/20" />
-          </motion.div>
-
-          {/* Clouds */}
-          <motion.div className="absolute top-10 left-[5%] opacity-10" style={{ x: useTransform(springX, (V) => V * 0.5) }}>
-            <Cloud className="w-40 h-40 fill-white" />
-          </motion.div>
-          <motion.div className="absolute bottom-10 right-[20%] opacity-10" style={{ x: useTransform(springX, (V) => V * 0.8) }}>
-            <Cloud className="w-64 h-64 fill-white" />
-          </motion.div>
-
-          {/* Decorative Blobs */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[hsl(var(--premium-orange))] rounded-full blur-[120px] opacity-20" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[hsl(var(--premium-teal))] rounded-full blur-[120px] opacity-20" />
-        </div>
+        {/* Floating Icons */}
+        <motion.div className="absolute top-20 left-10 text-orange-400 opacity-60" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+          <Mail className="w-16 h-16 fill-current" />
+        </motion.div>
+        <motion.div className="absolute bottom-20 right-10 text-teal-400 opacity-60" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <Phone className="w-16 h-16 fill-current" />
+        </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, type: "spring" }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="inline-block"
-            >
-              <Badge className="bg-white/10 text-white border-white/20 hover:bg-white/20 px-4 py-1.5 text-sm font-bold rounded-full mb-8 backdrop-blur-sm cursor-default">
-                <Sparkles className="w-4 h-4 mr-2 inline text-yellow-300" />
-                We're Here for You
-              </Badge>
-            </motion.div>
-
-            <h1 className="text-6xl md:text-8xl font-black mb-8 font-handwriting leading-tight tracking-tight">
-              Let's Start a <br className="hidden md:block" />
-              <span className="relative inline-block mt-2">
-                <span className="relative z-10 text-[hsl(var(--premium-orange))] drop-shadow-sm">Conversation</span>
-                {/* Wiggle Underline */}
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-white opacity-80" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" />
-                </svg>
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium leading-relaxed font-handwriting">
-              Have questions about admissions or want to see our campus? <br />
-              Reach out to us — we'd love to welcome you to the Basil Woods family.
-            </p>
-          </motion.div>
+          <Badge className="bg-white text-orange-600 border-2 border-orange-400 px-4 py-1 text-sm font-bold rounded-full mb-6 shadow-sm">
+            <MessageCircle className="w-4 h-4 mr-2 inline" />
+            Get in Touch
+          </Badge>
+          <h1 className="text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+            Let's Start a <span className="text-[hsl(var(--premium-orange))]">Conversation</span>
+          </h1>
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-medium">
+            Have questions about admissions or want to see our campus? <br className="hidden md:inline" />
+            Reach out to us — we'd love to welcome you to the Basil Woods family.
+          </p>
         </div>
       </section>
 
-      <section className="relative -mt-24 pb-20 z-20">
+      <section className="relative bg-yellow-50 -mt-24 pb-20 z-20">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white overflow-hidden">
             <div className="grid lg:grid-cols-2">
 
               {/* LEFT: Contact Form */}
-              <div className="p-8 md:p-12 lg:p-16 relative overflow-hidden">
+              <div className="p-6 md:p-12 lg:p-16 relative overflow-hidden">
                 {/* Background Pattern for Form */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 

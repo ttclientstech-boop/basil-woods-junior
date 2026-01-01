@@ -29,7 +29,7 @@ const GalleryPage = () => {
   });
 
   const chips = [
-    { name: "All", color: "bg-green-500 text-white"  },
+    { name: "All", color: "bg-green-500 text-white" },
     { name: "Classroom Activities", mapTo: ["Classroom", "Learning"], color: "bg-green-500 text-white" },
     { name: "Outdoor Play", mapTo: ["Activities", "Play", "Environment", "Campus"], color: "bg-green-500 text-white" },
     { name: "Art & Crafts", mapTo: ["Creativity"], color: "bg-green-500 text-white" },
@@ -73,8 +73,8 @@ const GalleryPage = () => {
       <Header />
 
       {/* HERO - "Memory Lane" */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent pointer-events-none" />
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-orange-100">
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
 
         {/* Floating Polaroids */}
         <motion.div
@@ -91,7 +91,7 @@ const GalleryPage = () => {
             <Camera className="w-4 h-4 mr-2 inline" />
             Our Happy Moments
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
             Capturing <span className="text-[hsl(var(--premium-orange))]">Joy</span> & <br />
             <span className="text-teal-500">Wonder</span>
           </h1>
@@ -102,7 +102,7 @@ const GalleryPage = () => {
       </section>
 
       {/* GALLERY - "The Art Wall" */}
-      <section className="py-20 bg-[#f4f1ea] border-y-8 border-neutral-200">
+      <section className="py-12 md:py-20 bg-[#f4f1ea] border-y-8 border-neutral-200">
         <div className="container mx-auto px-4">
 
           {/* Filters - "Paint Splashes" */}

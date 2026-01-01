@@ -70,7 +70,7 @@ const FacilitiesSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-24 bg-[hsl(var(--section-3))] relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-[hsl(var(--section-3))] relative overflow-hidden">
       <WaveDivider position="top" fill="#f6eee7" variant={3} />
 
       {/* Background Texture */}
@@ -94,7 +94,7 @@ const FacilitiesSection = () => {
               Our Chennai Campus
             </span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black text-neutral-900 leading-tight mb-4 font-handwriting">
+          <h2 className="text-3xl md:text-6xl font-black text-neutral-900 leading-tight mb-4 font-handwriting">
             Our Happy Spaces
           </h2>
           <p className="text-lg text-neutral-700 font-medium max-w-2xl mx-auto">

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Heart, Calendar, Phone, Target, Lightbulb, Shield, Award, Pin, MapPin, Sparkles, Building2, Trophy, Users, GraduationCap } from "lucide-react";
+import { Star, Heart, Calendar, Phone, Target, Lightbulb, Shield, Award, Pin, MapPin, Sparkles, Building2, Trophy, Users, GraduationCap, Map } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
@@ -134,7 +134,7 @@ const AboutUsPage = () => {
       <Header />
 
       {/* HERO SECTION - "The Story Begins" */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-10 w-32 h-32 bg-yellow-200 rounded-full blur-3xl opacity-50" />
@@ -164,8 +164,12 @@ const AboutUsPage = () => {
             transition={{ duration: 0.8 }}
             className="inline-block relative"
           >
+            <Badge className="bg-blue-100 text-black text-bold border-2 border-blue-400 px-4 py-1 text-sm font-bold rounded-full mb-6 shadow-sm">
+              <Map className="w-4 h-4 mr-2 inline" />
+              Learn About Us
+            </Badge>
             <div className="absolute -inset-4 bg-white/50 blur-xl rounded-full" />
-            <h1 className="relative text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+            <h1 className="relative text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
               Nurturing Young Minds <br />
               <span className="text-[hsl(var(--premium-orange))]">with Love & Excellence</span>
             </h1>
@@ -183,7 +187,7 @@ const AboutUsPage = () => {
       </section>
 
       {/* AWARDS SECTION - "The Corkboard" */}
-      <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] relative border-y-8 border-yellow-700/20">
+      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] relative border-y-8 border-yellow-700/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-white px-6 py-2 rounded-lg shadow-md border border-neutral-200 transform -rotate-2">
@@ -219,7 +223,7 @@ const AboutUsPage = () => {
       </section>
 
       {/* OUR STORY - "The Scrapbook" */}
-      <section className="py-20 bg-[#f4f1ea] relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-[#f4f1ea] relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Taped Photo */}

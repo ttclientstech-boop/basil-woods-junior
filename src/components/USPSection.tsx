@@ -77,7 +77,7 @@ const USPSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[hsl(var(--section-3))] relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-[hsl(var(--section-3))] relative overflow-hidden">
       <WaveDivider position="top" fill="#f6eee7" variant={2} />
 
       {/* Background Doodles */}
@@ -93,7 +93,7 @@ const USPSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
 
 
-          <h2 className="text-4xl md:text-6xl font-black text-neutral-800 leading-tight mb-6">
+          <h2 className="text-3xl md:text-6xl font-black text-neutral-800 leading-tight mb-6">
             Where Vision Meets <br />
             <span className="relative inline-block">
               <span className="relative z-10 text-white px-2">Experience</span>

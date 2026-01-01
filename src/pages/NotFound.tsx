@@ -1,8 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const NotFound = () => {
   const location = useLocation();
+
+  useSEO({
+    title: "404 - Page Not Found | Basil Woods Juniors",
+    description: "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    keywords: "404 error, page not found, Basil Woods Juniors",
+  });
 
   useEffect(() => {
     console.error(

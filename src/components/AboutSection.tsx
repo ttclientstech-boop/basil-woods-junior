@@ -12,7 +12,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-24 bg-[hsl(var(--section-3))] relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-[hsl(var(--section-3))] relative overflow-hidden">
       {/* Background Texture - Paper */}
       <div className="absolute inset-0 pointer-events-none opacity-20"
         style={{
@@ -86,7 +86,7 @@ const AboutSection = () => {
                 About Basil Woods Juniors
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-black text-[hsl(var(--brand-dark-green))] leading-[1.1] mb-6 font-handwriting">
+              <h2 className="text-3xl md:text-6xl font-black text-[hsl(var(--brand-dark-green))] leading-[1.1] mb-6 font-handwriting">
                 India’s Top Preschool <br />
                 <span className="relative inline-block px-2 mt-2">
                   <span className="relative z-10">in the Heart of Chennai</span>

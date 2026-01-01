@@ -25,7 +25,16 @@ const WaveBottom = ({ fill = "#f6eee7" }) => (
   </div>
 );
 
+import { useSEO } from "@/hooks/useSEO";
+
 const WorkingOnIt = () => {
+  useSEO({
+    title: "Page Under Construction | Basil Woods Juniors",
+    description: "We are currently working on this page to bring you a better experience. Please check back soon.",
+    keywords: "under construction, coming soon, Basil Woods Juniors",
+    canonical: "https://www.basilwoodschennai.in/building"
+  });
+
   return (
     <main className="relative min-h-[calc(100vh-var(--header-h))] bg-section-2 flex items-center overflow-hidden">
       <WaveTop fill="#e9eefc" />
@@ -38,7 +47,7 @@ const WorkingOnIt = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <Badge className="px-4 py-2 rounded-full font-medium mb-4 text-white"
-                 style={{ background: "linear-gradient(135deg, hsl(var(--premium-orange)), hsl(var(--premium-pink)))" }}>
+            style={{ background: "linear-gradient(135deg, hsl(var(--premium-orange)), hsl(var(--premium-pink)))" }}>
             🚧 We’re working on it
           </Badge>
 
@@ -53,7 +62,7 @@ const WorkingOnIt = () => {
           <div className="mx-auto max-w-xl bg-white rounded-2xl p-5 shadow-sm border border-[hsl(var(--neutral-100))] text-left mb-8">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                   style={{ backgroundColor: "hsl(var(--neutral-50))", color: "hsl(var(--premium-orange))" }}>
+                style={{ backgroundColor: "hsl(var(--neutral-50))", color: "hsl(var(--premium-orange))" }}>
                 ⏳
               </div>
               <div>

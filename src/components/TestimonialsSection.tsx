@@ -55,7 +55,7 @@ export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-20 md:py-24 bg-blue-50 relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-blue-50 relative overflow-hidden">
       {/* Background Pattern: Dot Grid & Vectors */}
       <div className="absolute inset-0 pointer-events-none opacity-10"
         style={{
@@ -124,7 +124,7 @@ export default function Testimonials() {
           <div className="inline-block bg-[hsl(var(--premium-orange))] text-white px-6 py-2 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-4 font-bold transform -rotate-2">
             Parents Feedback
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-neutral-900 uppercase tracking-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-neutral-900 uppercase tracking-tight">
             What Do Parents <br /> Say About Us?
           </h2>
         </motion.div>

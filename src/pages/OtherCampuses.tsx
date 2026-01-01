@@ -132,13 +132,22 @@ const campuses: Campus[] = [
 
 const openMaps = (link: string) => window.open(link, "_blank", "noopener,noreferrer");
 
+import { useSEO } from "@/hooks/useSEO";
+
 const OtherCampuses: React.FC = () => {
+    useSEO({
+        title: "Our Campuses - Find a Basil Woods Juniors Near You",
+        description: "Locate a Basil Woods Juniors preschool near you. We have branches in Bangalore, Hyderabad, Bhubaneswar, Mangalore, and Mumbai offering world-class early education.",
+        keywords: "Basil Woods branches, preschool locations, play school near me, international preschool chain, Basil Woods Bangalore, Basil Woods Hyderabad",
+        canonical: "https://www.basilwoodschennai.in/campuses"
+    });
+
     return (
         <div className="min-h-screen bg-[#fffdf5] font-sans">
             <Header />
 
             {/* HERO - "Our World" */}
-            <section className="relative pt-32 pb-20 overflow-hidden bg-blue-50">
+            <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-blue-50">
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')]" />
 
                 {/* Floating Elements */}
@@ -154,7 +163,7 @@ const OtherCampuses: React.FC = () => {
                         <MapPin className="w-4 h-4 mr-2 inline" />
                         Our Network
                     </Badge>
-                    <h1 className="text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+                    <h1 className="text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
                         Our Growing <span className="text-[hsl(var(--premium-orange))]">Family</span>
                     </h1>
                     <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-medium">
@@ -164,7 +173,7 @@ const OtherCampuses: React.FC = () => {
             </section>
 
             {/* CAMPUS LIST - "The Journey" */}
-            <section className="py-20 bg-white relative">
+            <section className="py-12 md:py-20 bg-white relative">
                 {/* Dashed Flight Path (Visual Guide) */}
                 <div className="absolute top-0 bottom-0 left-1/2 w-1 border-l-4 border-dashed border-neutral-200 hidden lg:block transform -translate-x-1/2" />
 

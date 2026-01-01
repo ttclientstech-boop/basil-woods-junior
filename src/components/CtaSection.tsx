@@ -43,7 +43,7 @@ const CTA: React.FC<CTAProps> = ({
   showWaves = true,
 }) => {
   return (
-    <section className="py-20 md:py-24 bg-[hsl(var(--section-4))] relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-[hsl(var(--section-4))] relative overflow-hidden">
       {showWaves && <WaveTop fill="#e3e9fb" />}
 
       {/* Background Pattern */}

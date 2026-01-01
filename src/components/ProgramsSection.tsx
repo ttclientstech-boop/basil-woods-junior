@@ -95,7 +95,7 @@ const ProgramsSection = () => {
   const rightActivities = activities.slice(midpoint);
 
   return (
-    <section className="py-24 bg-[#fff8f0] relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-[#fff8f0] relative overflow-hidden">
       <WaveDivider position="top" fill="#f6eee7" variant={1} />
 
       {/* Background Doodles */}
@@ -160,7 +160,7 @@ const ProgramsSection = () => {
           >
             <span className="font-bold text-neutral-600 text-sm uppercase tracking-widest">A Day in the Life</span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting leading-tight">
             Every Day is a <span className="text-[hsl(var(--premium-orange))]">New Adventure!</span>
           </h2>
         </div>

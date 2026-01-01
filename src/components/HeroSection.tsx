@@ -172,7 +172,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[hsl(var(--brand-dark-green))] leading-[1] tracking-tight mb-6 font-handwriting">
+                  <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-[hsl(var(--brand-dark-green))] leading-[1] tracking-tight mb-6 font-handwriting">
                     {heroContent[active].titlePrefix} <br className="hidden lg:block" />
                     <span className="relative inline-block mt-2">
                       <span className="relative z-10 text-white px-2" style={{ textShadow: '4px 4px 0px black' }}>

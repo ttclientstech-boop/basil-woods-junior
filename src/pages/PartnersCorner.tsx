@@ -137,7 +137,7 @@ const PartnersCornerPage = () => {
       <Header />
 
       {/* HERO - "The Family Room" */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-orange-50">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-orange-50">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
         {/* Floating Doodles */}
@@ -153,7 +153,7 @@ const PartnersCornerPage = () => {
             <Heart className="w-4 h-4 mr-2 inline fill-current" />
             Partners Corner
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
             Partners in <span className="text-[hsl(var(--premium-orange))]">Parenting</span>
           </h1>
           <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-medium">
@@ -163,7 +163,7 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* RESOURCES - "The Bookshelf" */}
-      <section className="py-20 bg-[#fdfbf7] border-b-8 border-orange-100">
+      <section className="py-12 md:py-20 bg-[#fdfbf7] border-b-8 border-orange-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-neutral-800 font-handwriting mb-2">Resource Library</h2>
@@ -202,7 +202,7 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* TIPS - "The Notice Board" */}
-      <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] border-y-8 border-yellow-800/20">
+      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] border-y-8 border-yellow-800/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-white px-6 py-2 shadow-md transform rotate-1 border border-neutral-200">
@@ -240,7 +240,7 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* EVENTS - "The Calendar" */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting mb-2">Upcoming Events</h2>
@@ -282,7 +282,7 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* TESTIMONIALS - "Community Voices" */}
-      <section className="py-20 bg-blue-50 relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-neutral-800 font-handwriting mb-2">Community Voices</h2>
@@ -316,7 +316,7 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* CTA - "The Envelope" */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto relative">
             {/* Envelope Flap Effect (Visual only) */}

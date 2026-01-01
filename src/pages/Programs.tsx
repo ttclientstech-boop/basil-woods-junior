@@ -141,7 +141,7 @@ const ProgramsPage = () => {
       <Header />
 
       {/* HERO - "Explorer's Guide" */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-blue-50">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
 
         {/* Floating Adventure Icons */}
@@ -157,7 +157,7 @@ const ProgramsPage = () => {
             <Map className="w-4 h-4 mr-2 inline" />
             Curriculum Map
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black text-[hsl(var(--brand-dark-green))] mb-6 font-handwriting leading-tight">
             Learning <span className="text-[hsl(var(--premium-orange))]">Adventures</span> <br />
             for Little Explorers
           </h1>
@@ -168,7 +168,7 @@ const ProgramsPage = () => {
       </section>
 
       {/* MAIN PROGRAMS - "Postcard Path" */}
-      <section className="py-20 relative">
+      <section className="py-12 md:py-20 relative">
         {/* Dashed Path Background */}
         <div className="absolute inset-0 pointer-events-none hidden md:block">
           <svg className="w-full h-full" preserveAspectRatio="none">
