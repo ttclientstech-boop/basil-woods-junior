@@ -103,14 +103,14 @@ const Header = () => {
                   <img
                     src={Cambridge}
                     alt="Cambridge"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-64"}`}
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-56"}`}
                   />
                 </Link>
                 <Link to="/" className="block">
                   <img
                     src={HKM}
                     alt="Culture Connect"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-64"}`}
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-56"}`}
                   />
                 </Link>
 
