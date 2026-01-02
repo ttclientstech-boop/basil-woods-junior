@@ -144,10 +144,11 @@ const AboutUsPage = () => {
       <Header />
 
       {/* HERO SECTION - "The Story Begins" */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden bg-orange-50">
+        <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-64 h-64 text-yellow-500/30 opacity-60 rotate-12">
+          <div className="hidden md:block absolute top-20 right-10 w-64 h-64 text-yellow-500/30 opacity-60 rotate-12">
             <DoodleBlob fillColor="currentColor" />
           </div>
           {/* <div className="absolute bottom-10 left-10 w-72 h-72 text-pink-500/30 opacity-60 -rotate-12">
@@ -156,18 +157,18 @@ const AboutUsPage = () => {
 
           {/* Floating Icons */}
           <motion.div
-            className="absolute top-1/4 left-10 text-orange-400"
+            className="hidden md:block absolute top-1/4 left-10 text-orange-500"
             animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
           >
-            <DoodleSparkle className="w-12 h-12 text-orange-600/60" />
+            <DoodleSparkle className="w-12 h-12 text-orange-600" />
           </motion.div>
           <motion.div
-            className="absolute bottom-1/4 right-10 text-teal-400"
+            className="hidden md:block absolute bottom-1/4 right-10 text-teal-500"
             animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
           >
-            <DoodleFlower className="w-16 h-16 text-teal-700/60" />
+            <DoodleFlower className="w-16 h-16 text-teal-700" />
           </motion.div>
         </div>
 
@@ -200,8 +201,9 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* AWARDS SECTION - "The Corkboard" */}
-      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] relative">
+      {/* MISSION & VISION - "The Compass" */}
+      <section className="py-20 relative bg-white">
+        <div className="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
           <DoodleWave className="w-full h-8 text-[#8d6e63] opacity-30 transform rotate-180" />
         </div>
@@ -489,13 +491,13 @@ const AboutUsPage = () => {
         <div className="container mx-auto px-4">
           <motion.div variants={itemVariants} className="max-w-4xl mx-auto mb-16 relative">
             {/* Animated Tulsi */}
-            <motion.div
+            {/* <motion.div
               className="absolute -top-10 -right-10 pointer-events-none hidden lg:block z-10"
               animate={{ rotate: [0, 3, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <img src={tulsiImg} alt="Tulsi" className="w-24 drop-shadow-md opacity-90" />
-            </motion.div>
+            </motion.div> */}
 
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-orange-100 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-bl-full opacity-50" />

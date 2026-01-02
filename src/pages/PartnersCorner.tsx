@@ -138,13 +138,13 @@ const PartnersCornerPage = () => {
 
       {/* HERO - "The Family Room" */}
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-orange-50">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
+        <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
         {/* Floating Doodles */}
-        <motion.div className="absolute top-20 left-10 text-pink-400 opacity-60" animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+        <motion.div className="hidden md:block absolute top-20 left-10 text-pink-500" animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }} transition={{ duration: 4, repeat: Infinity }}>
           <Heart className="w-16 h-16 fill-current" />
         </motion.div>
-        <motion.div className="absolute bottom-20 right-10 text-blue-400 opacity-60" animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+        <motion.div className="hidden md:block absolute bottom-20 right-10 text-blue-500" animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity }}>
           <Users className="w-16 h-16 fill-current" />
         </motion.div>
 
@@ -202,7 +202,8 @@ const PartnersCornerPage = () => {
       </section>
 
       {/* TIPS - "The Notice Board" */}
-      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] border-y-8 border-yellow-800/20">
+      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/cork-board.png')] border-y-8 border-yellow-800/20 relative">
+        <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-white px-6 py-2 shadow-md transform rotate-1 border border-neutral-200">

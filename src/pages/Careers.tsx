@@ -83,20 +83,20 @@ const CareersPage = () => {
 
       {/* HERO - "Growing Together" */}
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-green-50">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/leaves.png')]" />
+        <div className="absolute inset-0 opacity-50 bg-[url('https://www.transparenttextures.com/patterns/leaves.png')]" />
 
         {/* Floating Leaves */}
-        <motion.div className="absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]/40" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+        <motion.div className="hidden md:block absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
           <DoodleLeaf className="w-20 h-20" />
         </motion.div>
-        <motion.div className="absolute bottom-20 right-10 text-teal-600/30" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+        <motion.div className="hidden md:block absolute bottom-20 right-10 text-teal-600" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
           <DoodleFlower className="w-24 h-24" />
         </motion.div>
-        <motion.div className="absolute top-10 right-20 text-yellow-600/20" animate={{ rotate: [0, 20, 0] }} transition={{ duration: 7, repeat: Infinity }}>
+        <motion.div className="hidden md:block absolute top-10 right-20 text-yellow-600" animate={{ rotate: [0, 20, 0] }} transition={{ duration: 7, repeat: Infinity }}>
           <DoodleSun className="w-24 h-24" />
         </motion.div>
-        <motion.div className="absolute bottom-32 left-32 text-green-700/10" animate={{ x: [0, 30, 0] }} transition={{ duration: 10, repeat: Infinity }}>
-          <DoodleCloud className="w-40 h-24" />
+        <motion.div className="hidden md:block absolute bottom-32 left-32 text-green-700" animate={{ x: [0, 30, 0] }} transition={{ duration: 10, repeat: Infinity }}>
+          <DoodleCloud className="w-40 h-24 opacity-60" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -151,7 +151,8 @@ const CareersPage = () => {
       </section >
 
       {/* POSITIONS - "Job Board" */}
-      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-amber-50 border-y-8 border-amber-200/50">
+      <section className="py-12 md:py-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-amber-50 border-y-8 border-amber-200/50 relative">
+        <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block bg-white px-6 py-2 shadow-md transform -rotate-1 border border-neutral-200">

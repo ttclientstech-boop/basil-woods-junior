@@ -75,15 +75,15 @@ const GalleryPage = () => {
 
       {/* HERO - "Memory Lane" */}
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-orange-100">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-100/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-200/80 to-transparent pointer-events-none" />
 
         {/* Floating Polaroids & Doodles */}
         <motion.div
-          className="absolute top-10 left-10 text-[hsl(var(--brand-dark-green))]/30 hidden lg:block"
+          className="absolute top-10 left-10 text-[hsl(var(--brand-dark-green))] hidden lg:block"
           animate={{ rotate: [0, 10, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 8, repeat: Infinity }}
         >
-          <DoodleBird className="w-20 h-20" />
+          <DoodleBird className="w-20 h-20 opacity-80" />
         </motion.div>
 
         <motion.div
@@ -95,12 +95,12 @@ const GalleryPage = () => {
           <div className="h-2 w-16 bg-neutral-100 rounded" />
         </motion.div>
 
-        <motion.div className="absolute bottom-20 left-20 text-[hsl(var(--premium-orange))]/30 hidden md:block" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 4, repeat: Infinity }}>
+        <motion.div className="absolute bottom-20 left-20 text-[hsl(var(--premium-orange))] hidden md:block" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 4, repeat: Infinity }}>
           <DoodleSparkle className="w-12 h-12" />
         </motion.div>
 
-        <motion.div className="absolute top-1/4 right-1/4 text-yellow-500/20" animate={{ x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity }}>
-          <DoodleCloud className="w-32 h-20" />
+        <motion.div className="hidden md:block absolute top-1/4 right-1/4 text-yellow-500" animate={{ x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20 opacity-60" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -173,7 +173,8 @@ const GalleryPage = () => {
       </section>
 
       {/* ACHIEVEMENTS - "Trophy Shelf" */}
-      <section className="py-24 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-amber-50">
+      <section className="py-24 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] bg-amber-50 relative">
+        <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-amber-900 font-handwriting mb-2 drop-shadow-sm">Our Trophy Shelf</h2>

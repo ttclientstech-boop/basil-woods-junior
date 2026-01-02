@@ -46,6 +46,13 @@ export const DoodleBird = ({ className, strokeColor = "currentColor", ...props }
     </svg>
 );
 
+// Re-exporting StarDoodle
+export const StarDoodle = ({ className, fillColor = "none", strokeColor = "currentColor", ...props }: DoodleProps) => (
+    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className={cn("w-12 h-12", className)} {...props}>
+        <path d="M25 5 L 31 18 H 45 L 34 26 L 38 40 L 25 32 L 12 40 L 16 26 L 5 18 H 19 Z" stroke={strokeColor} strokeWidth="2.5" fill={fillColor} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
 // --- EDUCATIONAL ICONS ---
 
 export const DoodlePencil = ({ className, ...props }: DoodleProps) => (

@@ -84,49 +84,49 @@ const Header = () => {
             </div>
 
             {/* Logo Section */}
-            <div className="flex items-center gap-2 md:gap-4 relative z-50">
+            <div className="flex items-center gap-1 md:gap-4 relative z-50">
 
               {/* 1. Basil Woods Logo */}
               <Link to="/" className="block">
                 <motion.img
                   src={logo}
                   alt="Basil Woods Juniors"
-                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-28 md:w-36 lg:w-48"}`}
+                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-32" : "w-24 md:w-44 lg:w-60 xl:w-72"}`}
                   whileHover={{ scale: 1.05 }}
                 />
               </Link>
 
               {/* Separator 1 */}
-              <div className="h-10 md:h-48 w-[1.5px] bg-neutral-300 rounded-full mx-1 md:mx-1"></div>
+              <div className="h-8 md:h-12 w-[1.5px] bg-neutral-300 rounded-full mx-0.5 md:mx-1"></div>
               {/* 3. Stacked: Cambridge & ISKCON */}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-1 md:gap-2 justify-center">
                 <Link to="/" className="block">
                   <img
                     src={Cambridge}
                     alt="Cambridge"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-56"}`}
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-16 md:w-28" : "w-20 md:w-32 lg:w-40 xl:w-64"}`}
                   />
                 </Link>
                 <Link to="/" className="block">
                   <img
                     src={HKM}
                     alt="Culture Connect"
-                    className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-56"}`}
+                    className={`transition-all duration-300 object-contain ${scrolled ? "w-16 md:w-28" : "w-20 md:w-32 lg:w-40 xl:w-64"}`}
                   />
                 </Link>
 
               </div>
+              {/* Separator 2 */}
+              <div className="h-8 md:h-12 w-[1.5px] bg-neutral-300 rounded-full mx-0.5 md:mx-1"></div>
+
               {/* 2. Culture Connect Logo */}
               <Link to="/" className="block">
                 <img
                   src={logo3}
                   alt="ISKCON"
-                  className={`transition-all duration-300 object-contain ${scrolled ? "w-20 md:w-28" : "w-24 md:w-24 lg:w-28"}`}
+                  className={`transition-all duration-300 object-contain ${scrolled ? "w-14 md:w-24" : "w-16 md:w-28 lg:w-36 xl:w-44"}`}
                 />
               </Link>
-
-
-
             </div>
 
             {/* Desktop Navigation - Tab Style */}

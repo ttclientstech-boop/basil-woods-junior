@@ -185,7 +185,7 @@ const ProgramsSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: index * 0.2 }}
-                  className="relative pl-24 md:pl-32"
+                  className="relative pl-20 md:pl-32"
                 >
                   {/* Time Bubble */}
                   <div className="absolute left-0 top-0 z-20">
@@ -242,7 +242,7 @@ const ProgramsSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: index * 0.2 }}
-                  className="relative pl-24 md:pl-32"
+                  className="relative pl-20 md:pl-32"
                 >
                   {/* Time Bubble */}
                   <div className="absolute left-0 top-0 z-20">

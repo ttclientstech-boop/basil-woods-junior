@@ -116,21 +116,21 @@ const ContactUsPage: React.FC = () => {
       <Header />
 
       {/* HERO SECTION - Standardized */}
-      <section className="relative pt-24 pb-32 md:pt-32 md:pb-56 overflow-hidden bg-green-50">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
+      <section className="relative pt-24 pb-48 md:pt-32 md:pb-56 overflow-hidden bg-green-50">
+        <div className="absolute inset-0 opacity-50 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
         {/* Floating Icons */}
-        <motion.div className="absolute top-20 left-10 text-[hsl(var(--premium-orange))]/40" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-          <DoodleBird className="w-20 h-16" />
+        <motion.div className="hidden md:block absolute top-20 left-10 text-[hsl(var(--premium-orange))]" animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+          <DoodleBird className="w-20 h-16 opacity-80" />
         </motion.div>
-        <motion.div className="absolute bottom-20 right-10 text-teal-700/30" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
-          <DoodleCloud className="w-32 h-20" />
+        <motion.div className="hidden md:block absolute bottom-20 right-10 text-teal-700" animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20 opacity-60" />
         </motion.div>
-        <motion.div className="absolute top-32 right-32 text-yellow-600/30" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 3, repeat: Infinity }}>
-          <DoodleSparkle className="w-12 h-12" />
+        <motion.div className="hidden md:block absolute top-32 right-32 text-yellow-600" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 3, repeat: Infinity }}>
+          <DoodleSparkle className="w-12 h-12 opacity-80" />
         </motion.div>
-        <motion.div className="absolute bottom-40 left-32 text-[hsl(var(--brand-dark-green))]/20" animate={{ rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
-          <DoodlePencil className="w-24 h-24 transform -rotate-45" />
+        <motion.div className="hidden md:block absolute bottom-40 left-32 text-[hsl(var(--brand-dark-green))]" animate={{ rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+          <DoodlePencil className="w-24 h-24 transform -rotate-45 opacity-60" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -148,15 +148,15 @@ const ContactUsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="relative bg-yellow-50 -mt-24 pb-20 z-20">
+      <section className="relative bg-yellow-50 -mt-16 md:-mt-24 pb-20 z-20">
         <div className="container mx-auto px-4">
-          <div className="bg-white rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white overflow-hidden">
+          <div className="bg-white rounded-3xl md:rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-4 border-white overflow-hidden">
             <div className="grid lg:grid-cols-2">
 
               {/* LEFT: Contact Form */}
               <div className="p-6 md:p-12 lg:p-16 relative overflow-hidden">
                 {/* Background Pattern for Form */}
-                <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
+                <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')]" />
 
                 <h2 className="text-4xl font-black text-neutral-800 font-handwriting mb-3 relative z-10">Send us a Message</h2>
                 <p className="text-neutral-600 mb-10 text-lg relative z-10">Fill out the form below and we'll get back to you shortly.</p>
@@ -282,7 +282,7 @@ const ContactUsPage: React.FC = () => {
                 {/* Social / Quick Links */}
                 <div className="relative z-10 mt-10 pt-8 border-t-2 border-orange-200/50">
                   <p className="font-bold text-neutral-800 mb-6 uppercase tracking-wider text-sm opacity-60">Quick Connections</p>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button onClick={() => window.open(`https://wa.me/918056179108`, "_blank")} className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full h-12 px-6 shadow-lg shadow-green-200">
                         <FaWhatsapp className="w-5 h-5 mr-2" />

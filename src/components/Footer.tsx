@@ -39,7 +39,7 @@ const Footer = () => {
   return (
     <footer className="bg-[hsl(var(--brand-dark-green))] text-white relative overflow-hidden pt-20 pb-10">
       {/* Background Doodles */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
+      <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute top-10 left-10 text-white transform -rotate-12">
           <DoodleSun className="w-24 h-24 text-yellow-200" strokeWidth={1.5} />
         </div>
@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-16">
 
           {/* Brand Column */}
           <div className="md:col-span-1 space-y-6">

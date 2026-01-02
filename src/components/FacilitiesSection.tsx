@@ -81,7 +81,7 @@ const FacilitiesSection = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Sun */}
         <motion.div
-          className="absolute top-[5%] left-[5%] opacity-20 text-yellow-500"
+          className="absolute top-[5%] left-[5%] text-yellow-500"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         >
@@ -90,16 +90,16 @@ const FacilitiesSection = () => {
 
         {/* Cloud */}
         <motion.div
-          className="absolute top-[90%] right-[90%]  opacity-15 text-blue-400"
+          className="absolute top-[90%] right-[90%] text-blue-500"
           animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <DoodleCloud className="w-32 h-20" />
+          <DoodleCloud className="w-32 h-20 opacity-60" />
         </motion.div>
 
         {/* Pencil */}
         <motion.div
-          className="absolute top-[40%] left-[2%] opacity-10 text-[hsl(var(--premium-orange))]"
+          className="absolute top-[40%] left-[2%] text-[hsl(var(--premium-orange))]"
           animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -108,7 +108,7 @@ const FacilitiesSection = () => {
 
         {/* Bird */}
         <motion.div
-          className="absolute top-[15%] left-[40%] opacity-10 text-teal-600"
+          className="absolute top-[15%] left-[40%] text-teal-600"
           animate={{ x: [-20, 20, -20], y: [0, -10, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -117,7 +117,7 @@ const FacilitiesSection = () => {
 
         {/* Book */}
         <motion.div
-          className="absolute bottom-[20%] right-[5%] opacity-10 text-[hsl(var(--brand-dark-green))]"
+          className="absolute bottom-[20%] right-[5%] text-[hsl(var(--brand-dark-green))]"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -126,8 +126,8 @@ const FacilitiesSection = () => {
 
         {/* Sparkles */}
         <motion.div
-          className="absolute top-[30%] right-[25%] opacity-20 text-yellow-500"
-          animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.2, 0.5, 0.2] }}
+          className="absolute top-[30%] right-[25%] text-yellow-500"
+          animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
           <DoodleSparkle className="w-10 h-10" />
@@ -253,7 +253,7 @@ const FacilitiesSection = () => {
         animate={{ x: [-200, 1500] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       >
-        <img src={busImg} alt="School Bus" className="w-64 drop-shadow-lg opacity-90" />
+        <img src={busImg} alt="School Bus" className="w-64 drop-shadow-lg" />
       </motion.div> */}
 
       <motion.div
@@ -261,7 +261,7 @@ const FacilitiesSection = () => {
         animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
-        <img src={computerImg} alt="Computer" className="w-32 drop-shadow-md opacity-80" />
+        <img src={computerImg} alt="Computer" className="w-32 drop-shadow-md" />
       </motion.div>
 
       <WaveDivider position="bottom" fill="#e3e9fb" variant={4} />

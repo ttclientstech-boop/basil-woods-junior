@@ -51,8 +51,8 @@ const AboutSection = () => {
                   alt="Teacher and child interacting"
                   className="w-full rounded-sm border border-neutral-200"
                 />
-                <div className="absolute bottom-4 left-0 right-0 text-center">
-                  <span className="font-handwriting text-2xl text-neutral-800 font-bold">
+                <div className="absolute bottom-4 left-0 right-0 text-left pl-4 md:text-center md:pl-0">
+                  <span className="font-handwriting text-xl md:text-2xl text-neutral-800 font-bold bg-white/50 px-2 rounded-sm">
                     Nurturing Curiosity
                   </span>
                 </div>
@@ -60,21 +60,21 @@ const AboutSection = () => {
 
               {/* Floating Badge */}
               <motion.div
-                className="absolute -bottom-6 -right-6 z-30 bg-white p-4 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 transform rotate-3"
+                className="absolute -bottom-4  -right-2 md:-bottom-6 md:-right-6 z-30 bg-white p-2 md:p-4 rounded-xl md:rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2 md:gap-3 transform rotate-3 scale-90 md:scale-100"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <Award className="w-8 h-8 text-yellow-500 fill-current" />
+                <Award className="w-6 h-6 md:w-8 md:h-8 text-yellow-500 fill-current" />
                 <div className="leading-tight">
-                  <div className="text-xs font-black uppercase tracking-wider">Award Winning</div>
-                  <div className="text-sm font-black text-neutral-900">Preschool</div>
+                  <div className="text-[10px] md:text-xs font-black uppercase tracking-wider">Award Winning</div>
+                  <div className="text-xs md:text-sm font-black text-neutral-900">Preschool</div>
                 </div>
               </motion.div>
 
 
               {/* Decorative Elements */}
               <motion.div
-                className="absolute -top-10 -left-10 z-10 text-pink-400"
+                className="absolute -top-10 -left-5 z-10 text-pink-400"
                 animate={{ rotate: [0, 10, 0], scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >

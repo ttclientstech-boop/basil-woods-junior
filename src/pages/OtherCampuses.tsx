@@ -149,17 +149,17 @@ const OtherCampuses: React.FC = () => {
 
             {/* HERO - "Our World" */}
             <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-blue-50">
-                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')]" />
+                <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')]" />
 
                 {/* Floating Elements */}
-                <motion.div className="absolute top-20 left-10 text-blue-600/30" animate={{ x: [0, 20, 0], y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity }}>
-                    <DoodleRocket className="w-20 h-20 transform rotate-45" />
+                <motion.div className="hidden md:block absolute top-20 left-10 text-blue-600" animate={{ x: [0, 20, 0], y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+                    <DoodleRocket className="w-20 h-20 transform rotate-45 opacity-80" />
                 </motion.div>
-                <motion.div className="absolute bottom-20 right-10 text-green-700/30" animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-                    <DoodleCloud className="w-24 h-16" />
+                <motion.div className="hidden md:block absolute bottom-20 right-10 text-green-700" animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity }}>
+                    <DoodleCloud className="w-24 h-16 opacity-60" />
                 </motion.div>
-                <motion.div className="absolute top-32 right-32 text-yellow-600/30 hidden md:block" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 8, repeat: Infinity }}>
-                    <DoodleSun className="w-16 h-16" />
+                <motion.div className="absolute top-32 right-32 text-yellow-600 hidden md:block" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 8, repeat: Infinity }}>
+                    <DoodleSun className="w-16 h-16 opacity-80" />
                 </motion.div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">

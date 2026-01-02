@@ -149,17 +149,17 @@ const ProgramsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
 
         {/* Floating Adventure Icons */}
-        <motion.div className="absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]/40" animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} transition={{ duration: 5, repeat: Infinity }}>
-          <DoodlePencil className="w-20 h-20" />
+        <motion.div className="hidden md:block absolute top-20 left-10 text-[hsl(var(--brand-dark-green))]" animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} transition={{ duration: 5, repeat: Infinity }}>
+          <DoodlePencil className="w-20 h-20 opacity-80" />
         </motion.div>
-        <motion.div className="absolute top-40 right-20 text-[hsl(var(--premium-orange))]/40" animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
-          <DoodleBook className="w-24 h-24" />
+        <motion.div className="hidden md:block absolute top-40 right-20 text-[hsl(var(--premium-orange))]" animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+          <DoodleBook className="w-24 h-24 opacity-80" />
         </motion.div>
-        <motion.div className="absolute bottom-20 left-1/4 text-neutral-600/20" animate={{ x: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity }}>
-          <DoodleCloud className="w-32 h-20" />
+        <motion.div className="hidden md:block absolute bottom-20 left-1/4 text-neutral-600" animate={{ x: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity }}>
+          <DoodleCloud className="w-32 h-20 opacity-60" />
         </motion.div>
-        <motion.div className="absolute top-10 right-1/3 text-yellow-500/40" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity }}>
-          <DoodleSun className="w-16 h-16" />
+        <motion.div className="hidden md:block absolute top-10 right-1/3 text-yellow-500" animate={{ rotate: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity }}>
+          <DoodleSun className="w-16 h-16 opacity-80" />
         </motion.div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -182,7 +182,7 @@ const ProgramsPage = () => {
         {/* Dashed Path Background */}
         <div className="absolute inset-0 pointer-events-none hidden md:block">
           <svg className="w-full h-full" preserveAspectRatio="none">
-            <path d="M 200 100 Q 400 300 600 100 T 1000 300" stroke="#e5e5e5" strokeWidth="4" strokeDasharray="12 12" fill="none" />
+            <path d="M 200 100 Q 400 300 600 100 T 1000 300" stroke="#cccccc" strokeWidth="4" strokeDasharray="12 12" fill="none" />
           </svg>
         </div>
 
@@ -195,12 +195,12 @@ const ProgramsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`flex flex - col md: flex - row gap - 8 items - center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} `}
+                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                 id={program.name.toLowerCase().replace(/\s+/g, '')}
               >
                 {/* Postcard Image */}
                 <div className="w-full md:w-1/2 relative group">
-                  <div className={`absolute inset - 0 ${program.color} rounded - xl transform ${program.rotate} group - hover: rotate - 0 transition - transform duration - 300 shadow - lg border - 2 ${program.borderColor} `} />
+                  <div className={`absolute inset-0 ${program.color} rounded-xl transform ${program.rotate} group-hover:rotate-0 transition-transform duration-300 shadow-lg border-2 ${program.borderColor}`} />
                   <div className="relative bg-white p-3 rounded-xl border-2 border-white shadow-md transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
                     <img
                       src={program.image}
@@ -221,7 +221,7 @@ const ProgramsPage = () => {
 
                 {/* Handwritten Content */}
                 <div className="w-full md:w-1/2 md:px-8 text-center md:text-left">
-                  <h2 className={`text - 4xl font - black ${program.textColor} font - handwriting mb - 2`}>{program.name}</h2>
+                  <h2 className={`text-4xl font-black ${program.textColor} font-handwriting mb-2`}>{program.name}</h2>
                   <div className="inline-block bg-neutral-100 px-3 py-1 rounded-full text-sm font-bold text-neutral-600 mb-4 border border-neutral-200">
                     {program.age} • {program.capacity}
                   </div>
@@ -232,7 +232,7 @@ const ProgramsPage = () => {
                   <div className="grid grid-cols-2 gap-3">
                     {program.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm font-bold text-neutral-600">
-                        <CheckCircle2 className={`w - 4 h - 4 ${program.textColor} `} />
+                        <CheckCircle2 className={`w-4 h-4 ${program.textColor}`} />
                         {feature}
                       </div>
                     ))}
@@ -245,7 +245,7 @@ const ProgramsPage = () => {
       </section>
 
       {/* SPECIAL PROGRAMS - "Merit Badges" */}
-      <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/canvas-orange.png')] border-y-8 border-orange-200">
+      <section className="py-20 bg-[url('https://www.transparenttextures.com/patterns/canvas-orange.png')] bg-opacity-100 border-y-8 border-orange-200">
         <div className="container mx-auto px-4 relative z-10 text-center">
           {/* Boy School Vector */}
           <motion.div
@@ -279,8 +279,8 @@ const ProgramsPage = () => {
                   whileHover={{ scale: 1.1 }}
                   className="flex flex-col items-center"
                 >
-                  <div className={`w - 32 h - 32 rounded - full ${p.color} border - 4 border - dashed ${p.border} flex items - center justify - center shadow - [0px_8px_0px_0px_rgba(0, 0, 0, 0.1)] mb - 4`}>
-                    <Icon className={`w - 12 h - 12 ${p.text} `} />
+                  <div className={`w-32 h-32 rounded-full ${p.color} border-4 border-dashed ${p.border} flex items-center justify-center shadow-[0px_8px_0px_0px_rgba(0,0,0,0.1)] mb-4`}>
+                    <Icon className={`w-12 h-12 ${p.text}`} />
                   </div>
                   <h3 className="text-xl font-black text-[hsl(var(--brand-dark-green))] font-handwriting drop-shadow-sm">{p.name}</h3>
                 </motion.div>
@@ -342,12 +342,12 @@ const ProgramsPage = () => {
           <div className="max-w-4xl mx-auto relative">
             <div className="absolute inset-0 bg-[hsl(var(--premium-orange))] rounded-3xl transform -rotate-1 opacity-20" />
             <div className="relative bg-white border-4 border-dashed border-[hsl(var(--premium-orange))] rounded-3xl p-10 text-center shadow-[12px_12px_0px_0px_hsl(var(--premium-orange))]">
-              <div className="flex justify-between items-center mb-8 border-b-2 border-neutral-100 pb-4">
-                <div className="text-left">
+              <div className="flex flex-col sm:flex-row justify-between items-center mb-8 border-b-2 border-neutral-100 pb-4 gap-4 sm:gap-0">
+                <div className="text-center sm:text-left">
                   <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Destination</div>
                   <div className="text-xl font-black text-[hsl(var(--brand-dark-green))]">Basil Woods Juniors</div>
                 </div>
-                <div className="text-right">
+                <div className="text-center sm:text-right">
                   <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest">Passenger</div>
                   <div className="text-xl font-black text-[hsl(var(--brand-dark-green))]">Your Little One</div>
                 </div>
